@@ -574,3 +574,47 @@ footer {
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.3rem; }
 }
+/* Add this to your styles.css file */
+
+/* Navbar with social icons */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.social-icons a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+.social-icons img {
+    vertical-align: middle;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    #navbar {
+        padding: 10px;
+    }
+    
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    #navbar ul {
+        margin-bottom: 0.5rem;
+    }
+}
