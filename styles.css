@@ -114,7 +114,6 @@ h6 { font-size: 1rem; }
     background-position: center;
     background-attachment: fixed;
     position: relative;
-    
 }
 
 #hero::before {
@@ -125,7 +124,7 @@ h6 { font-size: 1rem; }
     right: 0;
     bottom: 0;
     height: 100%;
-    background-size : cover;
+    background-size: cover;
     background-position: right;
 }
 
@@ -135,7 +134,7 @@ h6 { font-size: 1rem; }
     z-index: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
-    font: bold;
+    font-weight: bold;
 }
 
 .cta-button {
@@ -253,9 +252,7 @@ h6 { font-size: 1rem; }
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
     padding: 2rem 1rem;
-    
     flex-direction: column;
-    
     align-items: left;
     text-align: center;
     background-image: url("jadapickett2.jpg");
@@ -264,336 +261,46 @@ h6 { font-size: 1rem; }
     background-attachment: fixed;
     position: relative;
 }
+
 .rightvid { 
     position: relative;
     right: 300px; 
 }
 
-#gallery img {
-    width: 250%;
-    height: 150px;
+/* Improved collage styles */
+.collage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.collage img {
+    width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 5px;
     transition: transform 0.3s;
-   position: relative ;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
+.collage img:hover {
+    transform: scale(1.05);
+}
+
 .media-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Creates 3 columns */
-    gap: 0; /* No gap between the grid items */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
 }
 
 .media-grid img,
 .media-grid video {
-    width: 50%;
+    width: 100%;
     height: auto;
 }
-#gallery img:hover {
-    transform: scale(1.55);}
-
-/* Slider styles */
-.slider-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 400px;
-}
-
-.slide {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slider-nav button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
-    color: #ffffff;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-}
-
-.slider-nav .prev { left: 1rem; }
-.slider-nav .next { right: 1rem; }
-
-.slider-dots {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-}
-
-.slider-dots .dot {
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.slider-dots .dot.active {
-    background-color: #ffffff;
-}
-
-/* Image styling */
-
-
-
-/* Optional: Hover effect on images */
-.collage img:hover {
-    transform: scale(1.55);
-    transition: transform 0.3s ease;
-} 
-.abouth {
-    color: #290057;
-    font-family: Georgia,;
-    text-shadow: 7px 7px 7px #42042a42;
-}
-/* Contact form styles */
-.contact {
-    position: relative;
-    bottom: 480px;
-}
-.main-content {
-    text-align: justify; /* Aligns text evenly along both sides */
-    float: right; /* Moves the article to the right side of the page */
-    width: 40%; /* Adjusts the width of the article */
-    margin-right: -100px; /* Adds space between the article and the edge of the page */
-    position: relative;
-    bottom: 420px;
-}
-.pricing {
-    text-align: center;
-    text-shadow: 0 0 10px #f0f;
-}
-.pricingh {
-    color: #290057;
-    font-size: 50px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    position: relative;
-    top: 120px;
-    left: 250px;
-}
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #f1f1f1;
-    font-size: 14px;
-    color: #333;
-}
-.logo {
-    position: relative;
-    right: 890px;
-    bottom: 300px;
-    width: 180px;
-    height: auto;
-}
-.logos {
-    position: relative;
-    bottom: 50px;
-    width: 200px;
-    height: auto;
-}
-
-/* Mobile-friendly adjustments for Loose Threads LLC */
-
-/* Base responsive adjustments */
-@media (max-width: 768px) {
-    html {
-      font-size: 14px;
-    }
-    
-    /* Navigation adjustments */
-    #navbar {
-      flex-direction: column;
-      padding: 0.5rem;
-    }
-    
-    #navbar ul {
-      flex-direction: column;
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-    
-    #navbar ul li {
-      margin: 0.5rem 0;
-    }
-    
-    /* Hero section */
-    #hero {
-      padding: 1rem;
-      height: auto;
-      min-height: 100vh;
-    }
-    
-    #hero h1 {
-      font-size: 2rem;
-      margin-top: 3rem;
-    }
-    
-    #hero h6 {
-      font-size: 1rem;
-    }
-    
-    /* Fix logo position on mobile */
-    .logo {
-      position: static;
-      width: 120px;
-      margin-bottom: 1rem;
-    }
-    
-    /* Content layout */
-    .grid-container {
-      display: block;
-    }
-    
-    /* Sidebar and main content */
-    .sidebar {
-      width: 100%;
-      margin-bottom: 2rem;
-    }
-    
-    .main-content {
-      float: none;
-      width: 100%;
-      margin-right: 0;
-      position: static;
-      text-align: left;
-    }
-    
-    /* Cards section */
-    #cards {
-      position: static;
-      padding: 1rem;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .card {
-      max-width: 100%;
-      margin-bottom: 1rem;
-    }
-    
-    /* Gallery and media adjustments */
-    #gallery {
-      grid-template-columns: 1fr;
-    }
-    
-  
-    
-    .collage img {
-      width: 100%;
-      height: auto;
-    }
-    
-    .media-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .media-grid img,
-    .media-grid video {
-      width: 100%;
-    }
-    
-    video {
-      width: 100% !important;
-    }
-    
-    .rightvid {
-      position: static;
-      right: auto;
-      width: 100% !important;
-    }
-    
-    /* About section */
-    .about ul {
-      padding-left: 1rem;
-    }
-    
-    /* Contact section */
-    .contact {
-      position: static;
-      padding: 1rem;
-    }
-    
-    /* Form elements */
-    .form-group {
-      margin-bottom: 1rem;
-    }
-    
-    input, textarea {
-      width: 100%;
-      padding: 0.5rem;
-    }
-    
-    /* Pricing section */
-    .pricing {
-      margin-top: 2rem;
-    }
-    
-    .pricingh {
-      position: static;
-      font-size: 1.8rem;
-      margin: 1rem 0;
-    }
-    
-    /* Logo in about section */
-    .logos {
-      position: static;
-      margin: 1rem auto;
-      display: block;
-    }
-  }
-  
-  /* Extra small devices (phones) */
-  @media (max-width: 480px) {
-    .collage {
-      grid-template-columns: 1fr;
-    }
-    
-    .collage img {
-      width: 100%;
-      height: auto;
-    }
-    
-    .collage img:hover {
-      transform: scale(1.1);
-    }
-    
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.3rem; }
-  }
-  
-  /* Fix for specific layout issues */
-  @media (max-width: 768px) {
-    /* Reset relative positions that break mobile layout */
-    .pricing, .main-content, #cards, .contact {
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-  }
-/* Add this to your styles.css file */
 
 /* Make embedded videos responsive */
 .media-grid iframe {
@@ -606,8 +313,158 @@ footer {
     transform: scale(1.05);
 }
 
-/* Ensure videos are responsive on mobile */
+.abouth {
+    color: #290057;
+    font-family: Georgia;
+    text-shadow: 7px 7px 7px #42042a42;
+}
+
+/* Contact form styles */
+.contact {
+    position: relative;
+    bottom: 480px;
+}
+
+.main-content {
+    text-align: justify;
+    float: right;
+    width: 40%;
+    margin-right: -100px;
+    position: relative;
+    bottom: 420px;
+}
+
+.pricing {
+    text-align: center;
+    text-shadow: 0 0 10px #f0f;
+}
+
+.pricingh {
+    color: #290057;
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: relative;
+    top: 120px;
+    left: 250px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    font-size: 14px;
+    color: #333;
+}
+
+.logo {
+    position: relative;
+    right: 890px;
+    bottom: 300px;
+    width: 180px;
+    height: auto;
+}
+
+.logos {
+    position: relative;
+    bottom: 50px;
+    width: 200px;
+    height: auto;
+}
+
+/* Mobile-friendly adjustments */
 @media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    /* Navigation adjustments */
+    #navbar {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    
+    #navbar ul {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    #navbar ul li {
+        margin: 0.5rem 0;
+    }
+    
+    /* Hero section */
+    #hero {
+        padding: 1rem;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    #hero h1 {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+    
+    #hero h6 {
+        font-size: 1rem;
+    }
+    
+    /* Fix logo position on mobile */
+    .logo {
+        position: static;
+        width: 120px;
+        margin-bottom: 1rem;
+    }
+    
+    /* Content layout */
+    .grid-container {
+        display: block;
+    }
+    
+    /* Sidebar and main content */
+    .sidebar {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .main-content {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+        position: static;
+        text-align: left;
+    }
+    
+    /* Cards section */
+    #cards {
+        position: static;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    /* Gallery and media adjustments */
+    #gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Collage responsiveness */
+    .collage {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .media-grid img,
+    .media-grid video,
     .media-grid iframe,
     .media-grid iframe.rightvid {
         width: 100% !important;
@@ -616,4 +473,68 @@ footer {
         position: static;
         margin-bottom: 15px;
     }
+    
+    .rightvid {
+        position: static;
+        right: auto;
+        width: 100% !important;
+    }
+    
+    /* About section */
+    .about ul {
+        padding-left: 1rem;
+    }
+    
+    /* Contact section */
+    .contact {
+        position: static;
+        padding: 1rem;
+    }
+    
+    /* Form elements */
+    input, textarea {
+        width: 100%;
+        padding: 0.5rem;
+    }
+    
+    /* Pricing section */
+    .pricing {
+        margin-top: 2rem;
+    }
+    
+    .pricingh {
+        position: static;
+        font-size: 1.8rem;
+        margin: 1rem 0;
+    }
+    
+    /* Logo in about section */
+    .logos {
+        position: static;
+        margin: 1rem auto;
+        display: block;
+    }
+    
+    /* Reset relative positions that break mobile layout */
+    .pricing, .main-content, #cards, .contact {
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 480px) {
+    .collage {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .collage img:hover {
+        transform: scale(1.1);
+    }
+    
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.3rem; }
 }
