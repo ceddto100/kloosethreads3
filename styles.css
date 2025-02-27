@@ -262,10 +262,7 @@ h6 { font-size: 1rem; }
     position: relative;
 }
 
-.rightvid { 
-    position: relative;
-    right: 300px; 
-}
+
 
 /* Improved collage styles */
 .collage {
@@ -474,11 +471,50 @@ footer {
         margin-bottom: 15px;
     }
     
-    .rightvid {
-        position: static;
-        right: auto;
-        width: 100% !important;
+ /* Add/update these styles in your styles.css file */
+
+/* Video container for proper layout */
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.video-left, .video-right {
+    flex: 1;
+    max-width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.video-left:hover, .video-right:hover {
+    transform: scale(1.05);
+}
+
+/* Media queries for responsive videos */
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column;
+        align-items: center;
     }
+    
+    .video-left, .video-right {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+/* Remove the old rightvid class styles that were causing issues */
+.rightvid {
+    position: static;
+    right: auto;
+}
     
     /* About section */
     .about ul {
