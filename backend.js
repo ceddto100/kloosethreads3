@@ -6,53 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Function to adjust collage styling for mobile
-    function adjustCollageForMobile() {
-      const collage = document.querySelector('.collage');
-      
-      if (!collage) return; // Exit if no collage found
-      
-      if (isMobile()) {
-        // Mobile styles
-        collage.style.display = 'grid';
-        collage.style.gridTemplateColumns = 'repeat(2, 1fr)'; // 2 columns on mobile
-        collage.style.gap = '10px';
-        collage.style.width = '100%';
-        collage.style.margin = '0 auto';
-        collage.style.paddingRight = '0';
-        
-        // Adjust all images in the collage
-        const images = collage.querySelectorAll('img');
-        images.forEach(img => {
-          img.style.width = '100%';
-          img.style.height = 'auto';
-        });
-        
-        // For extra small devices
-        if (window.innerWidth <= 480) {
-          collage.style.gridTemplateColumns = 'repeat(1, 1fr)'; // 1 column on very small screens
-        }
-      } else {
-        // Reset to original desktop styles
-        collage.style.display = 'grid';
-        collage.style.gridTemplateColumns = 'repeat(4, 1fr)';
-        collage.style.gap = '100px';
-        collage.style.width = '100%';
-        collage.style.paddingRight = '100px';
-        
-        // Reset images to original styling
-        const images = collage.querySelectorAll('img');
-        images.forEach(img => {
-          img.style.width = '250%';
-          img.style.height = 'auto';
-        });
-      }
-    }
     
-    // Initial adjustment
-    adjustCollageForMobile();
-    
-    // Adjust on window resize
-    window.addEventListener('resize', adjustCollageForMobile);
   });
 
   //new code
