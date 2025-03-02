@@ -130,3 +130,58 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+// Scroll Reveal Animation JavaScript
+
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all elements we want to animate
+  const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+  const paragraphs = document.querySelectorAll('p');
+  const images = document.querySelectorAll('img');
+  const iframes = document.querySelectorAll('iframe');
+  const cards = document.querySelectorAll('.card');
+  const ctaButtons = document.querySelectorAll('.cta-button, .card-cta');
+  const heroElements = document.querySelectorAll('#hero h1, #hero div, #hero .cta-button');
+  
+  // Set index attributes for collage images to create staggered animation
+  const collageImages = document.querySelectorAll('.collage img');
+  collageImages.forEach((img, index) => {
+    img.style.setProperty('--img-index', index);
+  });
+  
+  // Function to check if an element is in viewport
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 && 
+      rect.bottom >= 0
+    );
+  }
+  
+  // Function to handle scroll event
+  function handleScroll() {
+    // Check all elements
+    checkElements(headings);
+    checkElements(paragraphs);
+    checkElements(images);
+    checkElements(iframes);
+    checkElements(cards);
+    checkElements(ctaButtons);
+    checkElements(heroElements);
+  }
+  
+  // Function to check if elements are in viewport and add animation class
+  function checkElements(elements) {
+    elements.forEach(element => {
+      if (isElementInViewport(element)) {
+        element.classList.add('reveal-visible');
+      }
+    });
+  }
+  
+  // Add scroll event listener
+  window.addEventListener('scroll', handleScroll);
+  
+  // Trigger once on page load to reveal elements already in viewport
+  handleScroll();
+});
