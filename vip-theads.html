@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kloosethreads VIP Threads Campaign offers premium custom apparel, embroidery, and AI-powered branding solutions. Exclusive designs for businesses, sororities, sports teams, and organizations with special bulk order discounts.">
+    <meta name="keywords" content="Kloosethreads, VIP Threads, custom branding, embroidery, business apparel, sorority merchandise, team uniforms, bulk order discounts, AI branding, professional embroidery, custom logos, brand identity, fraternity apparel, sports team gear, organizational merchandise">
+    <meta name="author" content="Kloosethreads">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Kloosethreads VIP Threads | Premium Branding & Custom Apparel">
+    <meta property="og:description" content="Elevate your brand with exclusive VIP Threads. Premium embroidery and custom apparel for businesses, sororities, teams, and organizations. Bulk discounts available.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.kloosethreads.com/vip-threads">
+    <meta property="og:image" content="https://www.kloosethreads.com/images/vip-threads-social.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kloosethreads VIP Threads | Premium Branding Solutions">
+    <meta name="twitter:description" content="Exclusive custom apparel and branding for businesses, sororities, sports teams, and organizations. Powered by AI design technology.">
+    <meta name="twitter:image" content="https://www.kloosethreads.com/images/vip-threads-twitter.jpg">
+    <link rel="canonical" href="https://www.kloosethreads.com/vip-threads">
+    <title>Kloosethreads VIP Threads | Premium Custom Apparel & Branding Solutions</title>
+    <style>
+        /* Color scheme: White and Purple */
+        :root {
+            --primary-purple: #6a1b9a;
+            --light-purple: #9c4dcc;
+            --dark-purple: #38006b;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --accent-purple: #8e24aa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        .header {
+            background-color: var(--primary-purple);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--light-purple);
+            margin-left: 5px;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--light-purple);
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(56, 0, 107, 0.85), rgba(106, 27, 154, 0.9)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 2rem;
+            margin-top: 0;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--light-purple);
+            font-weight: 600;
+            font-style: italic;
+            padding: 0.5rem 2rem;
+            border-left: 4px solid var(--light-purple);
+            border-right: 4px solid var(--light-purple);
+            display: inline-block;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-purple);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--white);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            margin-left: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-purple);
+        }
+        
+        .services {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: var(--primary-purple);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--light-purple);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(106, 27, 154, 0.1);
+            border: 1px solid rgba(106, 27, 154, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--light-purple), var(--primary-purple));
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(106, 27, 154, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(156, 77, 204, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .service-card h3 {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .clients {
+            background-color: var(--dark-purple);
+            padding: 6rem 2rem;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .clients::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(45deg, rgba(156, 77, 204, 0.1) 25%, transparent 25%, transparent 50%, rgba(156, 77, 204, 0.1) 50%, rgba(156, 77, 204, 0.1) 75%, transparent 75%, transparent);
+            background-size: 10px 10px;
+            opacity: 0.1;
+        }
+        
+        .clients-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .clients-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .client-category {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .client-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .client-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-purple);
+        }
+        
+        .client-category h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: var(--light-purple);
+        }
+        
+        .promo {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            position: relative;
+        }
+        
+        .promo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--light-purple), var(--primary-purple), var(--light-purple));
+        }
+        
+        .promo-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(106, 27, 154, 0.15);
+            border: 1px solid rgba(106, 27, 154, 0.1);
+        }
+        
+        .promo h2 {
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+        
+        .promo-highlight {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-purple);
+            display: inline-block;
+            padding: 1rem 2rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            background-color: rgba(156, 77, 204, 0.1);
+            border: 2px dashed var(--light-purple);
+        }
+        
+        .promo p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+        
+        .promo .btn {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            border: 2px solid var(--primary-purple);
+            margin-top: 1rem;
+        }
+        
+        .promo .btn:hover {
+            background-color: transparent;
+            color: var(--primary-purple);
+        }
+        
+        .cta {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 2px);
+            background-size: 20px 20px;
+            transform: rotate(45deg);
+            opacity: 0.3;
+        }
+        
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+        }
+        
+        .cta p {
+            margin-bottom: 2.5rem;
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta .btn {
+            background-color: var(--white);
+            color: var(--primary-purple);
+            border: 2px solid var(--white);
+            padding: 1.2rem 2.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .cta .btn:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+        
+        .footer {
+            background-color: var(--dark-purple);
+            color: var(--white);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer-logo-icon {
+            margin-right: 10px;
+            font-size: 2.4rem;
+        }
+        
+        .footer-slogan {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--light-purple);
+        }
+        
+        .footer-links {
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-purple);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            .nav-menu {
+                margin-top: 1rem;
+            }
+            
+            .nav-menu a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 6rem 1rem 4rem;
+                margin-top: 5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 1rem auto;
+                width: 80%;
+                text-align: center;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+            
+            .services-grid, .clients-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .promo-highlight {
+                font-size: 1.4rem;
+                padding: 0.8rem 1.2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo"><div class="logo-icon">🧵</div>Kloose<span>threads</span></div>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="#services">VIP Offers</a>
+                <a href="#clients">Who We Serve</a>
+                <a href="#promo">Promotions</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🚀 Kloosethreads VIP Threads Campaign</h1>
+            <p class="tagline">🔹 Strengthen your network with a bold visual identity—VIP Threads by Kloosethreads. 🔹</p>
+            <p>At Kloosethreads, we understand that your brand is more than just a logo—it's a symbol of power, unity, and identity. Whether you're a business, sorority, sports team, or professional organization, establishing a strong visual presence is the key to making an impact. With VIP Threads, we offer elite-level branding, ensuring that your group stands out with exclusivity, style, and recognition.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">Start Your VIP Journey</a>
+                <a href="#services" class="btn btn-secondary">Explore VIP Benefits</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>What VIP Threads Offers</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">👑</div>
+                <h3>Custom Branding Excellence</h3>
+                <p>High-quality embroidered apparel, exclusive designs, and signature visual identity crafted to match your organization's essence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💎</div>
+                <h3>Elite Status & Recognition</h3>
+                <p>VIP Threads ensures your group, team, or business commands attention with a distinguished, cohesive brand presence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Bulk Order Promotions</h3>
+                <p>The bigger the order, the bigger the rewards! Unlock exclusive discounts on large orders for businesses, organizations, and teams.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏆</div>
+                <h3>Luxury & Legacy</h3>
+                <p>Elevate your group's legacy with premium embroidery and branding that reinforces unity, pride, and influence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>AI-Powered Innovation</h3>
+                <p>We use cutting-edge AI tools and automation to create flawless, precision-d
