@@ -618,3 +618,101 @@ footer {
         margin-bottom: 0.5rem;
     }
 }
+/* Scroll Reveal Animations
+   This CSS creates animations for all heading elements, paragraphs, and images 
+   that reveal as the user scrolls down the page */
+
+/* Base styling for elements before they animate */
+h1, h2, h3, h4, h5, h6,
+p, 
+img, iframe, .logo, .logos, .card, .collage img, .video-container iframe {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Styling for headings (slide up from bottom) */
+h1.reveal-visible, 
+h2.reveal-visible, 
+h3.reveal-visible, 
+h4.reveal-visible, 
+h5.reveal-visible, 
+h6.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Styling for paragraphs (fade in with slight slide) */
+p.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Styling for images and iframes (fade in) */
+img.reveal-visible, 
+iframe.reveal-visible, 
+.logo.reveal-visible, 
+.logos.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Special animations for cards */
+.card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.card.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animations for gallery images */
+.collage img {
+  transition-delay: calc(0.1s * var(--img-index, 0));
+}
+
+.collage img.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation for videos */
+.video-container iframe {
+  transition-delay: 0.2s;
+}
+
+.video-container iframe.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Different animations for different elements */
+
+/* For the hero section elements (slide in from left) */
+#hero h1, #hero div, #hero .cta-button {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+#hero h1.reveal-visible, 
+#hero div.reveal-visible, 
+#hero .cta-button.reveal-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Special animation for the logo (zoom in) */
+.logo, .logos {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.logo.reveal-visible, .logos.reveal-visible {
+  opacity: 1;
+  transform: scale(1);
+}
