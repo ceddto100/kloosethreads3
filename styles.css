@@ -716,3 +716,217 @@ iframe.reveal-visible,
   opacity: 1;
   transform: scale(1);
 }
+/* Responsive Fixes - Add to your styles.css */
+
+/* Base fixes for overall layout */
+html, body {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
+  position: relative;
+}
+
+/* Better positioning for major sections */
+#hero, .main-content, #cards, .contact, #gallery {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+}
+
+/* Responsive logo positioning */
+.logo {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  width: 180px;
+  height: auto;
+  margin: 0 auto 20px;
+}
+
+/* Improved card container */
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Better grid layout */
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .grid-container {
+    flex-direction: row;
+  }
+  
+  .sidebar {
+    flex: 1;
+  }
+  
+  .main-content {
+    flex: 2;
+  }
+}
+
+/* Improved mobile navigation */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 1001;
+  }
+  
+  #navbar ul.navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+  }
+  
+  #navbar ul.navbar.open {
+    display: flex;
+  }
+  
+  #navbar ul.navbar li {
+    margin: 0.5rem 1rem;
+  }
+  
+  .nav-right {
+    margin-left: auto;
+  }
+}
+
+/* Fix gallery and media layout */
+.media-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .media-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Better video container */
+.video-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .video-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.video-left, .video-right {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+/* Fix pricing section */
+.pricing {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.pricingh {
+  position: static;
+  font-size: calc(1.5rem + 1vw);
+  color: #290057;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 1rem 0;
+}
+
+/* Improved contact section */
+.contact {
+  padding: 2rem 1rem;
+  margin: 2rem 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Form adjustments */
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#contact-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Fix collage for all screen sizes */
+.collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .collage {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .collage {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
