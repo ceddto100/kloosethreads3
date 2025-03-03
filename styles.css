@@ -489,8 +489,7 @@ iframe {
     transform: scale(1.2);
 }
 
-/* Footer styles */
-/* Footer styles */
+/* Updated Footer styles */
 footer {
     text-align: center;
     padding: 1.5rem 1rem;
@@ -498,13 +497,35 @@ footer {
     font-size: 0.875rem;
     color: #333;
     margin-top: 2rem;
+    display: block; /* Ensure footer is displayed as block */
+}
+
+footer p {
+    margin: 0;
+    display: block !important; /* Force display of paragraph */
+    color: #333; /* Ensure text color is visible */
+    opacity: 1 !important; /* Ensure full opacity */
+    visibility: visible !important; /* Ensure visibility */
+    font-size: 0.875rem; /* Match footer font size */
+    line-height: 1.5; /* Add proper line height */
 }
 
 footer a {
     color: var(--primary-color);
     text-decoration: none;
+    display: inline-block; /* Make links more clickable */
 }
 
+footer a:hover {
+    text-decoration: underline; /* Add hover effect */
+}
+
+/* Remove any animation on the footer to ensure content is visible */
+footer, footer p, footer a {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+}
 /* Logo styles */
 .logo {
     width: 180px;
