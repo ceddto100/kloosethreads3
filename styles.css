@@ -166,7 +166,7 @@ img {
     text-align: center;
     padding: 6rem 1rem 3rem;
     min-height: 80vh;
-    background-image: url("home\\ pic.jpg");
+    background-image: url("home\ pic.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -722,4 +722,16 @@ img, iframe, .logo, .logos, .card, .collage img {
     h1 { font-size: 1.8rem; }
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.3rem; }
+}
+/* Ensure footer has no animation and appears immediately */
+footer {
+    opacity: 1 !important; /* Override any animation settings */
+    transform: none !important; /* Ensure no transform is applied */
+    transition: none !important; /* Remove any transitions */
+}
+
+/* This makes sure the footer is exempt from the reveal animations */
+footer.reveal-visible {
+    opacity: 1;
+    transform: none;
 }
