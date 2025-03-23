@@ -90,9 +90,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // 1. Dark Mode Toggle - Keeping your original code with refinements
+  // 1. Dark Mode Toggle with icon switch
   const darkModeToggle = document.getElementById('darkModeToggle');
   if (darkModeToggle) {
+    // Set initial state based on localStorage
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (savedDarkMode) {
+      document.body.classList.add('dark-mode');
+    }
+    
     darkModeToggle.addEventListener('click', function() {
       document.body.classList.toggle('dark-mode');
       
@@ -100,12 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const isDarkMode = document.body.classList.contains('dark-mode');
       localStorage.setItem('darkMode', isDarkMode);
     });
-    
-    // Check for saved preference
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    if (savedDarkMode) {
-      document.body.classList.add('dark-mode');
-    }
   }
   
   // 2. Navbar Scroll Effect - Keeping your original code
