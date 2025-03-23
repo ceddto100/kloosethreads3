@@ -757,3 +757,54 @@ footer.reveal-visible {
     opacity: 1;
     transform: none;
 }
+/* Add these styles to your styles.css file */
+#darkModeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s;
+}
+
+#darkModeToggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode #darkModeToggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#darkModeToggle .sun-icon,
+#darkModeToggle .moon-icon {
+    position: absolute;
+    transition: opacity 0.3s, transform 0.5s;
+}
+
+/* Initially show sun icon and hide moon icon */
+#darkModeToggle .sun-icon {
+    opacity: 1;
+    transform: rotate(0);
+}
+
+#darkModeToggle .moon-icon {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+/* When dark mode is active, show moon icon and hide sun icon */
+.dark-mode #darkModeToggle .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.dark-mode #darkModeToggle .moon-icon {
+    opacity: 1;
+    transform: rotate(0);
+}
