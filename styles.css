@@ -166,7 +166,7 @@ img {
     text-align: center;
     padding: 6rem 1rem 3rem;
     min-height: 80vh;
-    background-image: url("cover\ pic.jpg");
+    background-image: url("images/cover\ pic.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -305,7 +305,7 @@ img {
 #gallery {
     padding: 3rem 1rem;
     text-align: center;
-    background-image: url("jadapickett2.jpg");
+    background-image: url("images/jadapickett2.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
