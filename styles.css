@@ -109,7 +109,10 @@ nav a:hover, nav a:focus {
 
 /* HERO SECTION */
 .hero {
-  background: var(--hero-bg);
+  background-image: url('images/kcover.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 5rem 0 3rem 0;
   text-align: center;
 }
@@ -351,3 +354,4 @@ footer {
 .footer-links a:hover {
   color: var(--accent);
 }
+
