@@ -36,7 +36,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     
@@ -199,23 +199,30 @@
 </div>
     </section>
 
-    <section class="about-section" id="contact">
-      <h2>Contact</h2>
-      <div class="about-blocks">
-        <div class="about-block">
-          <h3>Email</h3>
-          <p><a href="mailto:kloosethreads@gmail.com">kloosethreads@gmail.com</a></p>
-        </div>
-        <div class="about-block">
-          <h3>Phone</h3>
-          <p><a href="tel:7707711443">(770) 771-1443</a></p>
-        </div>
-        <div class="about-block">
-          <h3>Instagram</h3>
-          <p><a href="https://www.instagram.com/kloosethreads23/" target="_blank" rel="noopener">kloosethreads23</a></p>
-        </div>
-      </div>
-    </section>
+    <section id="contact" style="max-width:400px;margin:2rem auto;padding:2rem;background:#f9f9f9;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+  <h2 style="text-align:center;">Contact</h2>
+  <form
+    action="https://formspree.io/f/mdkondbb"
+    method="POST"
+    style="display:flex;flex-direction:column;gap:1rem;"
+  >
+    <label style="display:flex;flex-direction:column;font-weight:500;">
+      Your email:
+      <input type="email" name="email" required style="padding:0.5rem;margin-top:0.25rem;border:1px solid #ccc;border-radius:5px;">
+    </label>
+    <label style="display:flex;flex-direction:column;font-weight:500;">
+      Your message:
+      <textarea name="message" required style="padding:0.5rem;margin-top:0.25rem;border:1px solid #ccc;border-radius:5px;min-height:100px;"></textarea>
+    </label>
+    <button type="submit" style="padding:0.7rem;background:#e1306c;color:#fff;border:none;border-radius:5px;font-weight:bold;cursor:pointer;transition:background 0.2s;">Send</button>
+  </form>
+  <div style="text-align:center;margin-top:2rem;">
+    <span style="font-size:1.2rem;">Follow us:</span><br>
+    <a href="https://instagram.com/your_instagram_username" target="_blank" style="color:#e1306c;font-size:2rem;margin-top:0.5rem;display:inline-block;">Kloosethreads23
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+</section>
   </main>
 
     <footer>
