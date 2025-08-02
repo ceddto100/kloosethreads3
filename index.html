@@ -77,182 +77,154 @@
     </script>
 </head>
 <body>
-    <header>
-        <nav id="navbar">
-            <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
-            <ul class="navbar">
-                <li><a href="#home" title="Home">Home</a></li>
-                <li><a href="#about" title="About Us">About</a></li>
-                <li><a href="#services" title="Our Embroidery Services">Services</a></li>
-                <li><a href="#contact" title="Contact KlooseThreads">Contact</a></li>
-            </ul>
-            <div class="nav-right">
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/kloosethreads23/?next=%2F" target="_blank" rel="noopener" aria-label="Follow us on Instagram">
-                        <img src="images/instagram.png" alt="KlooseThreads Instagram" width="30" height="30">
-                    </a>
-                    <a href="https://www.yelp.ca/biz/loose-threads-atlanta-2" target="_blank" rel="noopener" aria-label="Review us on Yelp">
-                        <img src="images/yelp.png" alt="KlooseThreads Yelp Reviews" width="30" height="30">
-                    </a>
-                </div>
-                <button id="darkModeToggle" aria-label="Toggle dark mode">
-                    <span class="sun-icon">☀️</span>
-                    <span class="moon-icon">🌙</span>
-                </button>
-            </div>
-        </nav>
-    </header>
+    </head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="site-title">
+        <img src="images/logo2.png" alt="KlooseThreads Logo">
+        KlooseThreads
+      </div>
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="document.querySelector('nav ul').classList.toggle('open')">&#9776;</button>
+      <nav>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
 
     <main>
-        <section id="hero">
-            <div class="hero-content">
-                <img src="images/logo2.png" alt="KlooseThreads Embroidery Logo" class="logo">
-                <h1 style="color: #4b0082; font-style: italic; font-size: 32px; text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);">Where fabric gets creative</h1>
-                <div style="font-weight: 700; color: black; letter-spacing: 1px; font-size: 16px; text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);">SET THE STANDARD, SET THE TONE</div>
-                <a href="#contact" class="cta-button">Get Started With Custom Embroidery</a>
-            </div>
-        </section>
-        
-        <div class="container">
-            <section id="content">
-                <div class="grid-container">
-                    <aside class="sidebar">
-                        <h2 class="abouth" id="services">Custom Embroidery Services</h2>
-                        <p><strong>Personalized Monograms</strong> – Elegant initials for jackets, shirts, or towels.</p>
-                        <p><strong>Company Logos</strong> – Branding on polos, caps, or uniforms to showcase your business.</p>
-                        <p><strong>Custom Quotes or Sayings</strong> – Meaningful phrases embroidered on bags, blankets, or shirts.</p>
-                        <p><strong>Name Embroidery</strong> – Personalize garments or accessories with individual names.</p>
-                        <p><strong>Floral Designs</strong> – Add nature-inspired embroidery to dresses, scarves, or table linens.</p>
-                        <p><strong>Childhood Characters</strong> – Cute and playful designs for children's clothing or baby blankets.</p>
-                        <p><strong>Seasonal Embroidery</strong> – Customize holiday-themed designs for sweaters, stockings, or table runners.</p>
-                    </aside>
-                    
-                    <div class="content-wrapper">
-                        <article class="main-content">
-                            <h2 class="abouth">Embroidery Trends</h2>
-                            <p><strong>Abstract & Geometric Patterns</strong> – Contemporary, bold patterns with clean lines and shapes, perfect for creating unique, eye-catching designs on clothing or accessories.</p>
-                            <p><strong>Vintage Revival</strong> – Retro-inspired designs, such as 70s-style florals, are experiencing a revival, adding a nostalgic vibe to modern pieces.</p>
-                            <p><strong>Sports Team Logos</strong> – Support your favorite team with custom jerseys or hats.</p>
-                            <p><strong>Handwritten Text & Signature Style</strong> – Custom, hand-drawn typography or text embroidery, adding a personal touch to any item.</p>
-                            <p><strong>Animal Embroidery</strong> – Create fun and vibrant animal designs for t-shirts or tote bags.</p>
-                            <p><strong>Letterman Jacket</strong> – Customize your jacket to fit in with current trends.</p>
-                            <p><strong>Memorial Embroidery</strong> – Honor a loved one with a special design on a blanket, pillow, or garment.</p>
-                        </article>
-                        <article class="pricing">
-                            <h3 class="pricingh">Get Quote Now</h3>
-                            <h4 class="pricingh">
-                                <a href="tel:7707711443" style="text-decoration: none; color: inherit;">(770)-771-1443</a>
-                            </h4>
-                        </article>
-                    </div>
-                </div>
-            </section>
+    <section class="hero" id="hero">
+      <img class="hero-logo" src="images/logo2.png" alt="KlooseThreads Logo">
+      <h1 class="hero-title">Where Fabric Gets Creative</h1>
+      <div class="hero-desc">
+        Premium custom embroidery & personalized apparel in Atlanta. Bring your ideas to life with monograms, logos, and unique designs—crafted with care by KlooseThreads.
+      </div>
+      <a href="#contact" class="hero-cta">Get a Free Quote</a>
+    </section>
 
-            <section id="cards">
-                <div class="card">
-                    <h3 class="abouth">👑 VIP Threads Experience</h3>
-                    <p style="text-align: center;">Elevate your brand with our exclusive VIP Threads program. Premium embroidery, custom apparel, and AI-powered branding that commands attention and builds recognition for businesses, teams, and organizations.</p>
-                    <a href="vip-threads.html" class="card-cta">Explore VIP Benefits →</a>
-                </div>
-                <div class="card">
-                    <h3 class="abouth">Apparel Embellishment</h3>
-                    <p>Enhance your apparel with our exquisite embroidery. Whether it's polos, caps, jackets, or uniforms, we bring a unique touch that makes your garments truly stand out.</p>
-                    <a href="#contact" class="card-cta">Learn More</a>
-                </div>
-            </section>
-
-            <section class="media-grid" id="gallery">
-                <h2 style="color: white; font-style: italic; font-size: 32px; text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7); text-decoration: underline;">Embroidery Gallery</h2>
-                <div class="video-container">
-                    <iframe class="video-left" width="240" height="427" 
-                        data-src="https://youtube.com/embed/e51Ne3VmeJA" 
-                        title="KlooseThreads Green Embroidery Process Video" 
-                        frameborder="0" 
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-
-                    <iframe class="video-right" width="240" height="427" 
-                        data-src="https://youtube.com/embed/s73W_-GcCGs" 
-                        title="KlooseThreads Purple Embroidery Demonstration" 
-                        frameborder="0" 
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <div class="collage">
-                    <img src="images/pic1.png" alt="Custom Embroidery Sample - Logo Design">
-                    <img src="images/pic2.png" alt="Monogram Embroidery Example">
-                    <img src="images/pic3.png" alt="Corporate Logo Embroidery">
-                    <img src="images/pic4.png" alt="Personalized Apparel Embroidery">
-                    <img src="images/pic5.png" alt="Custom Quote Embroidery Design">
-                    <img src="images/pic6.png" alt="Sports Team Logo Embroidery">
-                    <img src="images/pic7.png" alt="Floral Pattern Embroidery Sample">
-                    <img src="images/pic8.png" alt="Children's Character Embroidery">
-                    <img src="images/pic9.png" alt="Holiday-themed Embroidery Design">
-                    <img src="images/pic10.png" alt="Vintage Style Embroidery Work">
-                    <img src="images/pic11.png" alt="Custom Name Embroidery Example">
-                    <img src="images/pic12.png" alt="Memorial Embroidery Design Sample">
-                </div>
-            </section>
-            
-            <section class="about" id="about">
-                <h2 class="abouth">ABOUT LOOSE THREADS LLC.</h2>
-                <div class="about-content">
-                    <p>At Loose Threads LLC, we do more than just embroidery-we create lasting memories. With years of expertise our passionate team of artisans brings dedication and creativity to every project.</p>
-                    <p>From intricate patterns to personalized works of art, we take pride in the craftsmanship behind each piece.</p>
-                    <h3 class="abouth">Our Embroidery Vision</h3>
-                    <ul>
-                        <li>• Leading the embroidery industry by blending creativity and precision in every design.</li>
-                        <li>• Embracing innovative techniques to deliver captivating and inspiring designs</li>
-                        <li>• Supporting our community through workshops, sharing our knowledge, and engaging in charitable efforts.</li>
-                        <li>• Providing exceptional customer service by understanding individual needs and offering customized solutions.</li>
-                        <li>• Committing to sustainable practices, from sourcing materials to reducing waste, without compromising on quality.</li>
-                    </ul>
-                    <img src="images/logo2.png" alt="KlooseThreads Embroidery Logo" class="logos">
-                </div>
-            </section>
-
-            <section class="contact" id="contact">
-                <h2 class="abouth">Contact KlooseThreads</h2>
-                <form id="contact-form" action="https://formspree.io/f/mdkondbb" method="POST">
-                    <div class="form-group">
-                        <label for="email">Your email:</label>
-                        <input type="email" id="email" name="email" placeholder="youremail@gmail.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Your message:</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your embroidery project" required></textarea>
-                    </div>
-                    
-                    <button type="submit">Send Inquiry</button>
-                </form>
-
-                <div class="footer-contact">
-                    <a href="mailto:kloosethreads@gmail.com">kloosethreads@gmail.com</a>
-                    <p>Phone: <a href="tel:7707711443" style="text-decoration: none; color: inherit;">(770) 771-1443</a></p>
-                </div>
-                <div class="footer-social">
-                    <h3 class="abouth">Follow KlooseThreads</h3>
-                    <a href="https://www.instagram.com/kloosethreads23/?next=%2F" target="_blank" rel="noopener" aria-label="Follow KlooseThreads on Instagram">
-                        <img src="images/instagram.png" alt="KlooseThreads Instagram" width="40" height="40">
-                    </a>
-                    <a href="https://www.yelp.ca/biz/loose-threads-atlanta-2" target="_blank" rel="noopener" aria-label="KlooseThreads on Yelp">
-                        <img src="images/yelp.png" alt="KlooseThreads Yelp Reviews" width="40" height="40">
-                    </a>
-                </div>
-            </section>
+    <section class="about-section" id="about">
+      <h2>Our Embroidery Services</h2>
+      <div class="about-blocks">
+        <div class="about-block">
+          <h3>Personalized Monograms</h3>
+          <p>Elegant initials on jackets, shirts, towels, and more.</p>
         </div>
-    </main>
+        <div class="about-block">
+          <h3>Business Branding</h3>
+          <p>Custom logos and names embroidered on uniforms, hats, and workwear.</p>
+        </div>
+        <div class="about-block">
+          <h3>Gifts & Keepsakes</h3>
+          <p>Memorial, baby blankets, sports teams, and creative designs for lasting memories.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <a href="#img1" class="gallery-img-wrap">
+          <img src="images/gallery/pic1.jpg" alt="Embroidered logo cap" class="gallery-img">
+          <div class="gallery-caption">Logo Cap</div>
+        </a>
+        <a href="#img2" class="gallery-img-wrap">
+          <img src="images/gallery/pic2.jpg" alt="Monogrammed towel" class="gallery-img">
+          <div class="gallery-caption">Monogrammed Towel</div>
+        </a>
+        <a href="#img3" class="gallery-img-wrap">
+          <img src="images/gallery/pic3.jpg" alt="Custom team shirt" class="gallery-img">
+          <div class="gallery-caption">Team Shirt</div>
+        </a>
+        <a href="#img4" class="gallery-img-wrap">
+          <img src="images/gallery/pic4.jpg" alt="Personalized baby blanket" class="gallery-img">
+          <div class="gallery-caption">Baby Blanket</div>
+        </a>
+        <a href="#img5" class="gallery-img-wrap">
+          <img src="images/gallery/pic5.jpg" alt="Floral pattern embroidery" class="gallery-img">
+          <div class="gallery-caption">Floral Pattern</div>
+        </a>
+        <a href="#img6" class="gallery-img-wrap">
+          <img src="images/gallery/pic6.jpg" alt="Holiday design sweater" class="gallery-img">
+          <div class="gallery-caption">Holiday Sweater</div>
+        </a>
+      </div>
+      <!-- Lightbox modals for images (pure CSS) -->
+      <div id="img1" class="lightbox">
+        <div class="lightbox-content">
+          <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
+          <img src="images/gallery/pic1.jpg" alt="Embroidered logo cap large">
+          <div class="lightbox-caption">Logo Cap</div>
+        </div>
+      </div>
+      <div id="img2" class="lightbox">
+        <div class="lightbox-content">
+          <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
+          <img src="images/gallery/pic2.jpg" alt="Monogrammed towel large">
+          <div class="lightbox-caption">Monogrammed Towel</div>
+        </div>
+      </div>
+      <div id="img3" class="lightbox">
+        <div class="lightbox-content">
+          <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
+          <img src="images/gallery/pic3.jpg" alt="Custom team shirt large">
+          <div class="lightbox-caption">Team Shirt</div>
+        </div>
+      </div>
+      <div id="img4" class="lightbox">
+        <div class="lightbox-content">
+          <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
+          <img src="images/gallery/pic4.jpg" alt="Personalized baby blanket large">
+          <div class="lightbox-caption">Baby Blanket</div>
+        </div>
+      </div>
+      <div id="img5" class="lightbox">
+        <div class="lightbox-content">
+          <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
+          <img src="images/gallery/pic5.jpg" alt="Floral pattern embroidery large">
+          <div class="lightbox-caption">Floral Pattern</div>
+        </div>
+      </div>
+      <div id="img6" class="lightbox">
+        <div class="lightbox-content">
+          <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
+          <img src="images/gallery/pic6.jpg" alt="Holiday design sweater large">
+          <div class="lightbox-caption">Holiday Sweater</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="contact">
+      <h2>Contact</h2>
+      <div class="about-blocks">
+        <div class="about-block">
+          <h3>Email</h3>
+          <p><a href="mailto:kloosethreads@gmail.com">kloosethreads@gmail.com</a></p>
+        </div>
+        <div class="about-block">
+          <h3>Phone</h3>
+          <p><a href="tel:7707711443">(770) 771-1443</a></p>
+        </div>
+        <div class="about-block">
+          <h3>Instagram</h3>
+          <p><a href="https://www.instagram.com/kloosethreads23/" target="_blank" rel="noopener">kloosethreads23</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
 
     <footer>
-        <p>&copy; 2024 Loose Threads LLC. All rights reserved. | <a href="sitemap.xml">Sitemap</a> | <a href="privacy-policy.html">Privacy Policy</a></p>
-    </footer>
-
+    <div>KlooseThreads &copy; 2024. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+  </footer>
     <div id="fab">+</div>
 
     <div id="custom-cursor"></div>
