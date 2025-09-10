@@ -9,16 +9,11 @@
   --nav-link-active: #ffb300;
   --hero-bg: linear-gradient(120deg, #f3e6ff 0%, #fffbe7 100%);
   --gallery-gap: 1rem;
-  --bg: #ffffff; --fg: #111; --card: #f9f9f9; --accent: #e1306c;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
-
-[data-theme="dark"] {
-  --bg: #0f1115; --fg: #eaeaea; --card: #171a21; --accent: #ff4d8d;
-}
 
 body {
   font-family: 'Poppins', Arial, sans-serif;
@@ -28,8 +23,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-   background: var(--bg); color: var(--fg); }
-.about-block, .loyalty-card, .contact { background: var(--card); }
+}
 
 #theme-toggle { margin-left: .75rem; font-size:1rem; background:transparent; border:1px solid currentColor; border-radius:8px; padding:.4rem .6rem; }
 
@@ -460,42 +454,6 @@ footer {
 
 .btn-primary {
   background: #e1306c;
-
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
-
-.estimate-section { padding: 3rem 1rem; background: var(--card); border-top:1px solid rgba(0,0,0,.06); }
-.estimate-form { display:grid; gap: .75rem; grid-template-columns: repeat(12, 1fr); max-width: 800px; margin: 0 auto; }
-.estimate-form label { grid-column: span 12; display:flex; flex-direction:column; gap:.25rem; }
-.estimate-form select, .estimate-form input { padding:.6rem; border:1px solid #ddd; border-radius:8px; background: #fff; color:inherit; }
-@media (min-width: 768px) {
-  .estimate-form label:nth-child(1) { grid-column: span 4; }
-  .estimate-form label:nth-child(2) { grid-column: span 4; }
-  .estimate-form label:nth-child(3) { grid-column: span 3; }
-  .estimate-form label:nth-child(4) { grid-column: span 12; }
-}
-.estimate-form button { grid-column: span 12; justify-self: start; }
-.estimate-result { text-align:center; font-weight:700; margin-top:.75rem; }
-
-
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(225,48,108,0.2);
-}
-
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(225,48,108,0.28);
-}
-
-.btn-light {
-  background: #fff;
-  color: #333;
-  border: 1px solid #e8e8e8;
-}
-
-.btn-light:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
 }
 
 
