@@ -1,382 +1,269 @@
-// ================================
-// KlooseThreads - backend.js
-// Progressive, defensive enhancements.
-// Won't alter layout; only behavior.
-// ================================
-
+// Complete updated backend.js file
 document.addEventListener('DOMContentLoaded', function () {
-  // ------------------------------
-  // Helpers
-  // ------------------------------
-  const $  = (sel, root = document) => root.querySelector(sel);
-  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-  const isMobile = () => window.innerWidth <= 768;
-
-  // ------------------------------
-  // 0) Mobile Menu Toggle (supports BOTH your old IDs and current HTML)
-  //   - Old: #mobileMenuToggle + .navbar
-  //   - New: .menu-toggle + nav ul (from your HTML)
-  // ------------------------------
-  const mobileMenuToggle = $('#mobileMenuToggle') || $('.menu-toggle');
-  const navbarMenu       = $('.navbar') || $('nav ul');
+  // Mobile menu toggle functionality
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const navbarMenu = document.querySelector('.navbar');
 
   if (mobileMenuToggle && navbarMenu) {
-    // Initialize ARIA for accessibility if using .menu-toggle/new nav
-    mobileMenuToggle.setAttribute('aria-expanded', 'false');
-
-    const toggleMenu = () => {
+    mobileMenuToggle.addEventListener('click', function () {
       navbarMenu.classList.toggle('open');
+
+      // Change toggle icon
       const isOpen = navbarMenu.classList.contains('open');
-      // Icon/text handling
-      if (mobileMenuToggle.id === 'mobileMenuToggle') {
-        mobileMenuToggle.innerHTML = isOpen ? '✕' : '☰';
-      }
-      mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
-    };
-
-    mobileMenuToggle.addEventListener('click', toggleMenu);
-
-    // Close menu when clicking a nav link (mobile)
-    $$('a', navbarMenu).forEach(a => a.addEventListener('click', () => {
-      if (navbarMenu.classList.contains('open')) {
-        navbarMenu.classList.remove('open');
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        if (mobileMenuToggle.id === 'mobileMenuToggle') mobileMenuToggle.innerHTML = '☰';
-      }
-    }));
-  }
-
-  // ------------------------------
-  // 1) Collage: index + mobile trim (kept from your file)
-  // ------------------------------
-  function adjustCollageForMobile() {
-    const collage = $('.collage');
-    if (!collage) return;
-    const images = $$('img', collage);
-
-    images.forEach((img, index) => {
-      img.style.setProperty('--img-index', index);
-      if (isMobile() && index > 8) {
-        img.style.display = 'none';
-      } else {
-        img.style.display = 'block';
-      }
+      mobileMenuToggle.innerHTML = isOpen ? '✕' : '☰';
     });
   }
 
-  // ------------------------------
-  // 2) Optimize Video Loading (iframes)
-  //    - Mobile: lazy via IntersectionObserver
-  //    - Desktop: load immediately
-  // ------------------------------
-  function optimizeVideoLoading() {
-    const videos = $$('iframe');
-    if (!videos.length) return;
+  // Function to check if device is mobile
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
 
+  // Adjust collage layout for mobile devices
+  function adjustCollageForMobile() {
+    const collage = document.querySelector('.collage');
+    if (collage) {
+      const images = collage.querySelectorAll('img');
+
+      // Set index attributes for collage images to create staggered animation
+      images.forEach((img, index) => {
+        img.style.setProperty('--img-index', index);
+
+        // On mobile, limit visible images to improve performance
+        if (isMobile() && index > 8) {
+          img.style.display = 'none';
+        } else {
+          img.style.display = 'block';
+        }
+      });
+    }
+  }
+
+  // Function to optimize video loading
+  function optimizeVideoLoading() {
+    const videos = document.querySelectorAll('iframe');
+
+    // Only load videos when they're close to viewport on mobile
     if (isMobile()) {
-      videos.forEach(video => {
+      videos.forEach((video) => {
+        // Store original src if not already done
         if (video.src && !video.getAttribute('data-src')) {
-          video.setAttribute('data-src', video.src);
+          const dataSrc = video.src;
+          video.setAttribute('data-src', dataSrc);
           video.removeAttribute('src');
         }
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const ds = video.getAttribute('data-src');
-              if (ds && !video.src) video.src = ds;
-              observer.unobserve(video);
-            }
-          });
-        }, { threshold: 0.1 });
+
+        // Create intersection observer to load video when scrolled near
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                video.src = video.getAttribute('data-src');
+                observer.unobserve(video);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
         observer.observe(video);
       });
     } else {
-      videos.forEach(video => {
-        const ds = video.getAttribute('data-src');
-        if (ds && !video.src) video.src = ds;
+      // On desktop, load all videos directly
+      videos.forEach((video) => {
+        const dataSrc = video.getAttribute('data-src');
+        if (dataSrc && !video.src) {
+          video.src = dataSrc;
+        }
       });
     }
   }
 
-  // ------------------------------
-  // 3) Responsive hero height (kept from your file)
-  // ------------------------------
+  // Handle window resize events for responsive adjustments
   function handleResize() {
     adjustCollageForMobile();
 
-    const hero = $('#hero');
-    if (hero) {
-      if (isMobile()) {
-        hero.style.height = 'auto';
-        hero.style.minHeight = '80vh';
-      } else {
-        hero.style.height = '100vh';
-        hero.style.minHeight = '';
-      }
+    // Adjust hero section height on mobile
+    const hero = document.getElementById('hero');
+    if (hero && isMobile()) {
+      hero.style.height = 'auto';
+      hero.style.minHeight = '80vh';
+    } else if (hero) {
+      hero.style.height = '100vh';
     }
   }
 
-  // ------------------------------
-  // 4) Dark Mode
-  // Supports either #darkModeToggle or #theme-toggle (if you add it later)
-  // ------------------------------
-  (function darkMode() {
-    const toggle = $('#darkModeToggle') || $('#theme-toggle');
-    const STORAGE_KEY = 'kt-theme';
-    const root = document.documentElement;
-
-    const apply = (mode) => {
-      // If you’re already using body.dark-mode in your CSS, keep it in sync:
-      document.body.classList.toggle('dark-mode', mode === 'dark');
-      root.setAttribute('data-theme', mode);
-      try { localStorage.setItem(STORAGE_KEY, mode); } catch {}
-    };
-
-    // Init from storage or system
-    const saved = (() => { try { return localStorage.getItem(STORAGE_KEY); } catch { return null; }})();
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    if (saved) {
-      apply(saved);
-    } else if (prefersDark.matches) {
-      apply('dark');
-    } else {
-      apply('light');
+  // 1. Dark Mode Toggle with icon switch
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  if (darkModeToggle) {
+    // Set initial state based on localStorage
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (savedDarkMode) {
+      document.body.classList.add('dark-mode');
     }
 
-    // Watch system change only if user hasn’t chosen explicitly
-    prefersDark.addEventListener?.('change', (e) => {
-      const chosen = (() => { try { return localStorage.getItem(STORAGE_KEY); } catch { return null; }})();
-      if (!chosen) apply(e.matches ? 'dark' : 'light');
+    darkModeToggle.addEventListener('click', function () {
+      document.body.classList.toggle('dark-mode');
+
+      // Save preference to localStorage
+      const isDarkMode = document.body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDarkMode);
     });
+  }
 
-    // Click to toggle
-    toggle?.addEventListener('click', () => {
-      const cur = (document.body.classList.contains('dark-mode') || root.getAttribute('data-theme') === 'dark') ? 'dark' : 'light';
-      apply(cur === 'dark' ? 'light' : 'dark');
+  // 2. Navbar Scroll Effect - Keeping your original code
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shrink');
+      } else {
+        navbar.classList.remove('shrink');
+      }
     });
-  })();
+  }
 
-  // ------------------------------
-  // 5) Navbar scroll shrink (kept from your file)
-  // Supports #navbar; falls back to <header>
-  // ------------------------------
-  (function navbarShrink() {
-    const navbar = $('#navbar') || $('header');
-    if (!navbar) return;
-    const onScroll = () => {
-      if (window.scrollY > 50) navbar.classList.add('shrink');
-      else navbar.classList.remove('shrink');
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  })();
+  // 3. Smooth Scroll for Navigation Links - Keeping your original code with mobile menu close added
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  navLinks.forEach((link) => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
 
-  // ------------------------------
-  // 6) Smooth Scroll for in-page anchors (kept, safer)
-  // ------------------------------
-  (function smoothAnchors() {
-    $$('nav a[href^="#"], a[href^="#"]').forEach(link => {
-      link.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (!targetId || targetId === '#') return;
-        const target = $(targetId);
-        if (!target) return;
-        e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
 
-        // Scroll with minimal offset; your layout uses fixed header
-        const headerHeight = ($('header')?.offsetHeight || 70);
-        const top = target.getBoundingClientRect().top + window.scrollY - headerHeight + 4;
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 70, // Offset for navbar
+          behavior: 'smooth',
+        });
+      }
 
-        window.scrollTo({ top, behavior: 'smooth' });
-        history.pushState(null, '', targetId);
+      // Close mobile menu if open
+      if (navbarMenu && navbarMenu.classList.contains('open') && mobileMenuToggle) {
+        navbarMenu.classList.remove('open');
+        mobileMenuToggle.innerHTML = '☰';
+      }
+    });
+  });
 
-        // Close mobile menu if open
-        if (navbarMenu && navbarMenu.classList.contains('open') && mobileMenuToggle) {
-          navbarMenu.classList.remove('open');
-          mobileMenuToggle.setAttribute('aria-expanded', 'false');
-          if (mobileMenuToggle.id === 'mobileMenuToggle') mobileMenuToggle.innerHTML = '☰';
-        }
+  // 4. Custom Cursor Effect - Keeping your original code
+  const cursor = document.getElementById('custom-cursor');
+  const cursorTrailer = document.getElementById('cursor-trailer');
+
+  if (cursor && cursorTrailer) {
+    document.addEventListener('mousemove', function (e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+
+      // Delayed effect for cursor trailer
+      setTimeout(function () {
+        cursorTrailer.style.left = e.clientX + 'px';
+        cursorTrailer.style.top = e.clientY + 'px';
+      }, 100);
+    });
+  }
+
+  // 5. Floating Action Button - Keeping your original code
+  const fab = document.getElementById('fab');
+  if (fab) {
+    fab.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
       });
     });
-  })();
 
-  // ------------------------------
-  // 7) Custom Cursor (kept from your file)
-  // ------------------------------
-  (function customCursor() {
-    const cursor = $('#custom-cursor');
-    const trailer = $('#cursor-trailer');
-    if (!(cursor && trailer)) return;
-
-    let raf = null;
-    const move = (e) => {
-      const { clientX: x, clientY: y } = e;
-      cursor.style.left = x + 'px';
-      cursor.style.top = y + 'px';
-
-      // small delay for trailer
-      if (raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        trailer.style.left = x + 'px';
-        trailer.style.top = y + 'px';
-      });
-    };
-    document.addEventListener('mousemove', move, { passive: true });
-  })();
-
-  // ------------------------------
-  // 8) Floating Action Button (kept from your file)
-  // ------------------------------
-  (function fabTop() {
-    const fab = $('#fab');
-    if (!fab) return;
-
-    fab.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Show/hide FAB based on scroll position
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        fab.style.display = 'flex';
+      } else {
+        fab.style.display = 'none';
+      }
     });
+  }
 
-    const onScroll = () => {
-      fab.style.display = (window.scrollY > 300) ? 'flex' : 'none';
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  })();
-
-  // ------------------------------
-  // 9) Contact Form Validation (kept; now targets your #contact form)
-  // ------------------------------
-  (function formValidation() {
-    const contactForm = $('#contact-form') || $('#contact form');
-    if (!contactForm) return;
-
+  // 6. Form Validation - Enhanced version of your original code
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
-      const emailInput = contactForm.querySelector('input[type="email"]');
-      const messageInput = contactForm.querySelector('textarea[name="message"]');
+      const emailInput = document.querySelector('input[type="email"]');
+      const messageInput = document.querySelector('textarea[name="message"]');
 
       let isValid = true;
-      const errors = [];
+      const errorMessages = [];
 
+      // Reset any previous error styling
       if (emailInput) emailInput.style.borderColor = '';
       if (messageInput) messageInput.style.borderColor = '';
 
-      if (emailInput && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+      // Email validation
+      if (emailInput && !emailInput.value.includes('@')) {
         isValid = false;
         emailInput.style.borderColor = 'red';
-        errors.push('Please enter a valid email address.');
+        errorMessages.push('Please enter a valid email address');
       }
 
-      if (messageInput && messageInput.value.trim().length < 10) {
+      // Message validation
+      if (messageInput && messageInput.value.length < 10) {
         isValid = false;
         messageInput.style.borderColor = 'red';
-        errors.push('Message must be at least 10 characters long.');
+        errorMessages.push('Message must be at least 10 characters long');
       }
 
       if (!isValid) {
         e.preventDefault();
-        alert(errors.join('\n'));
+        alert(errorMessages.join('\n'));
       }
     });
-  })();
+  }
 
-  // ------------------------------
-  // 10) Scroll Reveal (improved)
-  //    Uses IntersectionObserver with a simple fallback.
-  //    Adds .reveal-visible to typical elements.
-  // ------------------------------
-  (function scrollReveal() {
-    const groups = [
-      'h1','h2','h3','h4','h5','h6',
-      'p','img','iframe',
-      '.card','.cta-button','.card-cta',
-      '#hero h1', '#hero div', '#hero .cta-button',
-      '.about-block', '.gallery-img-wrap', '.loyalty-card', 'section#contact', 'footer', 'header'
-    ];
+  // Scroll Reveal Animation - Improved version of your original code
+  function handleScrollReveal() {
+    // Get all elements we want to animate
+    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const paragraphs = document.querySelectorAll('p');
+    const images = document.querySelectorAll('img');
+    const iframes = document.querySelectorAll('iframe');
+    const cards = document.querySelectorAll('.card');
+    const ctaButtons = document.querySelectorAll('.cta-button, .card-cta');
+    const heroElements = document.querySelectorAll('#hero h1, #hero div, #hero .cta-button');
 
-    const elements = $$(groups.join(','));
-
-    if (!('IntersectionObserver' in window)) {
-      elements.forEach(el => el.classList.add('reveal-visible'));
-      return;
+    // Function to check if an element is in viewport
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 && rect.bottom >= 0;
     }
 
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
-          io.unobserve(entry.target);
+    // Function to check elements and add animation class
+    function checkElements(elements) {
+      elements.forEach((element) => {
+        if (isElementInViewport(element)) {
+          element.classList.add('reveal-visible');
         }
       });
-    }, { threshold: 0.15 });
+    }
 
-    elements.forEach(el => io.observe(el));
-  })();
+    // Check all elements
+    checkElements(headings);
+    checkElements(paragraphs);
+    checkElements(images);
+    checkElements(iframes);
+    checkElements(cards);
+    checkElements(ctaButtons);
+    checkElements(heroElements);
+  }
 
-  // ------------------------------
-  // 11) Keyboard Lightbox Controls (Esc/←/→)
-  //     Navigates anchors #imgN (based on current DOM)
-  // ------------------------------
-  (function lightboxKeys() {
-    const boxes = $$("div[id^='img']").filter(d => /^img\d+$/i.test(d.id));
-    if (!boxes.length) return;
-
-    const ids = boxes
-      .map(d => d.id)
-      .sort((a, b) => Number(a.replace('img', '')) - Number(b.replace('img', '')))
-      .map(id => `#${id}`);
-
-    const currentIndex = () => ids.indexOf(location.hash);
-
-    window.addEventListener('keydown', (e) => {
-      const idx = currentIndex();
-      if (idx === -1) return;
-      if (e.key === 'Escape') location.hash = '#gallery';
-      if (e.key === 'ArrowRight') location.hash = ids[(idx + 1) % ids.length];
-      if (e.key === 'ArrowLeft')  location.hash = ids[(idx - 1 + ids.length) % ids.length];
-    });
-  })();
-
-  // ------------------------------
-  // 12) Lazy-load upgrade for images (CLS friendly)
-  // ------------------------------
-  (function lazyImages() {
-    const imgs = $$('.gallery-img, .lightbox img, section img');
-    imgs.forEach(img => {
-      if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
-      if (!img.getAttribute('width'))  img.setAttribute('width',  '600');
-      if (!img.getAttribute('height')) img.setAttribute('height', '600');
-    });
-  })();
-
-  // ------------------------------
-  // 13) Tiny hygiene
-  //     - Fix common filename typo in DOM: fururesport -> futuresport
-  //     - Secure external links
-  // ------------------------------
-  (function hygiene() {
-    $$('img, source').forEach(node => {
-      const attr = node.tagName === 'SOURCE' ? 'srcset' : 'src';
-      const v = node.getAttribute(attr);
-      if (!v) return;
-      if (v.includes('fururesport.png')) {
-        node.setAttribute(attr, v.replace('fururesport.png', 'futuresport.png'));
-      }
-    });
-
-    $$("a[target='_blank']").forEach(a => {
-      const rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
-      if (!rel.includes('noopener')) rel.push('noopener');
-      if (!rel.includes('noreferrer')) rel.push('noreferrer');
-      a.setAttribute('rel', rel.join(' '));
-    });
-  })();
-
-  // ------------------------------
-  // Init/responsive listeners (kept)
-  // ------------------------------
+  // Initialize all responsive functions
   handleResize();
   optimizeVideoLoading();
+  handleScrollReveal();
 
+  // Add event listeners
   window.addEventListener('resize', handleResize);
+  window.addEventListener('scroll', handleScrollReveal);
 });
+
 
 
