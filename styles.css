@@ -354,4 +354,121 @@ footer {
 .footer-links a:hover {
   color: var(--accent);
 }
+/* Loyalty Section */
+.loyalty-section {
+  padding: 4rem 1rem;
+  background: #fff;
+}
+
+.loyalty-section .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.loyalty-section h2 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.loyalty-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0.5rem auto 2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.loyalty-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.25rem;
+}
+
+.loyalty-card {
+  grid-column: span 12;
+  background: #f9f9f9;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+@media (min-width: 640px) {
+  .loyalty-card { grid-column: span 6; }
+}
+
+@media (min-width: 992px) {
+  .loyalty-card { grid-column: span 3; }
+}
+
+.loyalty-card h3 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.loyalty-card ul {
+  padding-left: 1.1rem;
+  margin: 0;
+  color: #444;
+  line-height: 1.55;
+}
+
+.loyalty-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  margin-bottom: 0.6rem;
+  font-size: 1.2rem;
+  color: #e1306c; /* matches your Contact button accent */
+}
+
+.loyalty-cta {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-light {
+  display: inline-block;
+  padding: 0.8rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary {
+  background: #e1306c;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(225,48,108,0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(225,48,108,0.28);
+}
+
+.btn-light {
+  background: #fff;
+  color: #333;
+  border: 1px solid #e8e8e8;
+}
+
+.btn-light:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+}
+
 
