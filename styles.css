@@ -509,7 +509,9 @@ footer {
 .testimonial-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,.08); }
 [data-theme="dark"] .testimonial-btn { background: #222733; border-color: rgba(255,255,255,.12); color: #eaeaea; }
 
-/* Services grid tune-up */
+/* ===== Services Section (Consolidated, no duplicates) ===== */
+
+/* Grid: stack on mobile, 2 across on tablet, 5 across on desktop */
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -518,11 +520,11 @@ footer {
 @media (min-width: 700px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (min-width: 1024px) {
-  .services-grid { grid-template-columns: repeat(4, 1fr); }
+@media (min-width: 1200px) {
+  .services-grid { grid-template-columns: repeat(5, 1fr); }
 }
 
-/* Card polish (reuses .about-block base) */
+/* Card styling (extends your .about-block base) */
 .service-card {
   background: #f9f9f9;
   border: 1px solid rgba(0,0,0,.06);
@@ -531,45 +533,14 @@ footer {
   box-shadow: 0 2px 8px rgba(0,0,0,.04);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
+.dark-mode .service-card,
 [data-theme="dark"] .service-card {
   background: #171a21;
   border-color: rgba(255,255,255,.08);
 }
 
-/* Buttons */
-.btn-primary, .btn-light, .btn-outline {
-  display: inline-block;
-  padding: .6rem .9rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-align: center;
-  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-}
-.btn-primary {
-  background: #a259ff; color: #fff; border: 1px solid #8c46dc;
-}
-.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(162,89,255,.25); }
-
-.btn-light {
-  background: #fff; color: #333; border: 1px solid #e3e3e3; margin-left: .5rem;
-}
-.btn-light:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.08); }
-
-.btn-outline {
-  background: transparent; color: #333; border: 1px solid #d0d0d0;
-}
-.btn-outline:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,.08); }
-[data-theme="dark"] .btn-light { background: #222733; color: #eaeaea; border-color: rgba(255,255,255,.12); }
-[data-theme="dark"] .btn-outline { color: #eaeaea; border-color: rgba(255,255,255,.18); }
-
-/* Actions area */
-.service-actions { margin-top: .75rem; display: flex; flex-wrap: wrap; }
-.services-cta-row {
-  display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-top: 1.25rem;
-}
-/* Icon + title alignment */
+/* Title with icon */
 .service-title {
   display: flex;
   align-items: center;
@@ -578,8 +549,86 @@ footer {
 }
 .service-title i { font-size: 1.1rem; opacity: .9; }
 
-/* Make icon buttons tidy */
+/* Action buttons area (keeps CTAs aligned at the bottom) */
+.service-actions {
+  margin-top: auto;
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+/* Buttons (shared) */
+.btn-primary,
+.btn-light,
+.btn-outline {
+  display: inline-block;
+  padding: .6rem .9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  transition:
+    transform .15s ease,
+    box-shadow .2s ease,
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+/* Primary */
+.btn-primary {
+  background: #a259ff;
+  color: #fff;
+  border: 1px solid #8c46dc;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(162,89,255,.25);
+}
+
+/* Light */
+.btn-light {
+  background: #fff;
+  color: #333;
+  border: 1px solid #e3e3e3;
+}
+.btn-light:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+.dark-mode .btn-light,
+[data-theme="dark"] .btn-light {
+  background: #222733;
+  color: #eaeaea;
+  border-color: rgba(255,255,255,.12);
+}
+
+/* Outline */
+.btn-outline {
+  background: transparent;
+  color: #333;
+  border: 1px solid #d0d0d0;
+}
+.btn-outline:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+}
+.dark-mode .btn-outline,
+[data-theme="dark"] .btn-outline {
+  color: #eaeaea;
+  border-color: rgba(255,255,255,.18);
+}
+
+/* Quick links row under services */
+.services-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
 .services-cta-row .btn-outline i { margin-right: .35rem; }
+
+
 
 
 
