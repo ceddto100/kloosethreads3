@@ -509,6 +509,69 @@ footer {
 .testimonial-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,.08); }
 [data-theme="dark"] .testimonial-btn { background: #222733; border-color: rgba(255,255,255,.12); color: #eaeaea; }
 
+/* Services grid tune-up */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 700px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Card polish (reuses .about-block base) */
+.service-card {
+  background: #f9f9f9;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+[data-theme="dark"] .service-card {
+  background: #171a21;
+  border-color: rgba(255,255,255,.08);
+}
+
+/* Buttons */
+.btn-primary, .btn-light, .btn-outline {
+  display: inline-block;
+  padding: .6rem .9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn-primary {
+  background: #a259ff; color: #fff; border: 1px solid #8c46dc;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(162,89,255,.25); }
+
+.btn-light {
+  background: #fff; color: #333; border: 1px solid #e3e3e3; margin-left: .5rem;
+}
+.btn-light:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.08); }
+
+.btn-outline {
+  background: transparent; color: #333; border: 1px solid #d0d0d0;
+}
+.btn-outline:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,.08); }
+[data-theme="dark"] .btn-light { background: #222733; color: #eaeaea; border-color: rgba(255,255,255,.12); }
+[data-theme="dark"] .btn-outline { color: #eaeaea; border-color: rgba(255,255,255,.18); }
+
+/* Actions area */
+.service-actions { margin-top: .75rem; display: flex; flex-wrap: wrap; }
+.services-cta-row {
+  display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-top: 1.25rem;
+}
+
+
+
 
 
 
