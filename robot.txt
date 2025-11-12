@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-
-# Block nothing (full crawl). Add disallows if you create private areas, e.g.:
-# Disallow: /admin/
-# Disallow: /api/
-
-# Point crawlers to your sitemap
-Sitemap: https://kloosethreads.com/sitemap.xml

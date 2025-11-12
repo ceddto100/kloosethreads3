@@ -103,7 +103,7 @@
       </div>
         
 
-      <button class="menu-toggle" aria-label="Toggle navigation" onclick="document.querySelector('nav ul').classList.toggle('open')">&#9776;</button>
+      <button id="mobile-menu-toggle" class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
       <nav>
         <ul>
           <li><a href="#hero">Home</a></li>
@@ -121,14 +121,7 @@
 <section class="hero" id="hero">
   <img class="hero-logo" src="images/logo2.png" alt="KlooseThreads Logo">
   <h1 class="hero-title">Where Fabric Gets Creative</h1>
-  <div class="hero-desc" style="
-  color: #4b0082;
-  font-weight: bold;
-  text-shadow:
-    0 0 8px #a259ff,
-    0 0 16px #a259ff,
-    0 0 24px #a259ff;
-">
+  <div class="hero-desc hero-glow">
   Premium custom embroidery & personalized apparel in Atlanta. Bring your ideas to life with monograms, logos, and unique designs—crafted with care by KlooseThreads.
 </div>
   <a href="#contact" class="hero-cta">Get a Free Quote</a>
@@ -148,7 +141,7 @@
       <p>Snapbacks, dad hats, beanies, truckers—clean stitching, color-matched, and durable.</p>
       <div class="service-actions">
         <a class="btn-primary" href="/embroidery-hats-atlanta/">View Hats Service</a>
-        <a class="btn-light" href="/#contact">Get a Quote</a>
+        <a class="btn-secondary" href="/#contact">Get a Quote</a>
       </div>
     </article>
 
@@ -161,7 +154,7 @@
       <p>Polos, workwear, jackets, and hats. One-time digitizing with your brand colors on file.</p>
       <div class="service-actions">
         <a class="btn-primary" href="/logo-embroidery-atlanta/">View Logo Service</a>
-        <a class="btn-light" href="/#contact">Get a Quote</a>
+        <a class="btn-secondary" href="/#contact">Get a Quote</a>
       </div>
     </article>
 
@@ -174,7 +167,7 @@
       <p>Robes, towels, gifts &amp; keepsakes. Elegant fonts, thread colors, and fast turnaround.</p>
       <div class="service-actions">
         <a class="btn-primary" href="/monogramming-atlanta/">View Monogramming</a>
-        <a class="btn-light" href="/#contact">Get a Quote</a>
+        <a class="btn-secondary" href="/#contact">Get a Quote</a>
       </div>
     </article>
 
@@ -187,7 +180,7 @@
       <p>Work &amp; school uniforms with reinforced stitching, size runs, and easy re-orders.</p>
       <div class="service-actions">
         <a class="btn-primary" href="/uniform-embroidery-atlanta/">View Uniforms</a>
-        <a class="btn-light" href="/#contact">Get a Quote</a>
+        <a class="btn-secondary" href="/#contact">Get a Quote</a>
       </div>
     </article>
 
@@ -201,7 +194,7 @@
       <p>Have a sketch or logo to refine? We’ll co-create a stitch-ready design—color-matched, optimized, and proofed before production.</p>
       <div class="service-actions">
         <a class="btn-primary" href="/custom-design-embroidery-atlanta/">View Design Service</a>
-        <a class="btn-light" href="/#contact">Start a Collaboration</a>
+        <a class="btn-secondary" href="/#contact">Start a Collaboration</a>
       </div>
     </article>
   </div>
@@ -223,52 +216,52 @@
 
   <div class="gallery-grid">
     <a href="#img1" class="gallery-img-wrap">
-      <img src="images/pic7.png" alt="Embroidered logo cap" class="gallery-img">
+      <img src="images/pic7.png" alt="Custom embroidered company logo on black snapback cap - Atlanta embroidery service" class="gallery-img" loading="lazy">
       <div class="gallery-caption">Logo Cap</div>
     </a>
 
     <a href="#img2" class="gallery-img-wrap">
-      <img src="images/pic11.png" alt="Sports Team" class="gallery-img">
+      <img src="images/pic11.png" alt="Sports team logo embroidery on athletic apparel - custom team uniforms Atlanta" class="gallery-img" loading="lazy">
       <div class="gallery-caption">Favorite Team</div>
     </a>
 
     <a href="#img3" class="gallery-img-wrap">
-      <img src="images/pic6.png" alt="Custom brand shirt" class="gallery-img">
+      <img src="images/pic6.png" alt="Branded company shirts with custom logo embroidery - corporate apparel Atlanta" class="gallery-img" loading="lazy">
       <div class="gallery-caption">Brand Shirts</div>
     </a>
 
     <a href="#img4" class="gallery-img-wrap">
-      <img src="images/kletter.png" alt="Letterman Jacket" class="gallery-img">
+      <img src="images/kletter.png" alt="Varsity letterman jacket with custom chenille patches and embroidered name" class="gallery-img" loading="lazy">
       <div class="gallery-caption">Letterman</div>
     </a>
 
     <a href="#img5" class="gallery-img-wrap">
-      <img src="images/klawn.jpg" alt="Floral pattern embroidery" class="gallery-img">
+      <img src="images/klawn.jpg" alt="Custom floral pattern embroidery design on fabric - decorative stitching Atlanta" class="gallery-img" loading="lazy">
       <div class="gallery-caption">Custom</div>
     </a>
 
     <a href="#img6" class="gallery-img-wrap">
-      <img src="images/kgolf.png" alt="Golf" class="gallery-img">
+      <img src="images/kgolf.png" alt="Embroidered logo on golf polo shirt - custom corporate golf apparel" class="gallery-img" loading="lazy">
       <div class="gallery-caption">On Anything</div>
     </a>
 
     <a href="#img7" class="gallery-img-wrap">
-      <img src="images/heart.png" alt="Heart Design" class="gallery-img">
+      <img src="images/heart.png" alt="Heart design custom embroidery on apparel - personalized gifts Atlanta" class="gallery-img" loading="lazy">
       <div class="gallery-caption">Show Love</div>
     </a>
 
     <a href="#img8" class="gallery-img-wrap">
-      <img src="images/airborne.png" alt="Airborne Design" class="gallery-img">
+      <img src="images/airborne.png" alt="Military airborne insignia embroidery patch - custom military embroidery Atlanta" class="gallery-img" loading="lazy">
       <div class="gallery-caption">Have Pride</div>
     </a>
 
     <a href="#img9" class="gallery-img-wrap">
-      <img src="images/fururesport.png" alt="Future Sport Design" class="gallery-img">
+      <img src="images/fururesport.png" alt="Future sport custom logo embroidery on athletic wear" class="gallery-img" loading="lazy">
       <div class="gallery-caption">Take Action</div>
     </a>
 
     <a href="#img10" class="gallery-img-wrap">
-      <img src="images/vfw.png" alt="VFW Design" class="gallery-img">
+      <img src="images/vfw.png" alt="VFW Veterans of Foreign Wars embroidered logo on cap - military embroidery service" class="gallery-img" loading="lazy">
       <div class="gallery-caption">Support A Cause</div>
     </a>
   </div>
@@ -277,7 +270,7 @@
   <div id="img1" class="lightbox">
     <div class="lightbox-content">
       <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
-      <img src="images/pic7.png" alt="Embroidered logo cap large">
+      <img src="images/pic7.png" alt="Custom embroidered company logo on black snapback cap - Atlanta embroidery service" loading="lazy">
       <div class="lightbox-caption">Logo Cap</div>
     </div>
   </div>
@@ -285,7 +278,7 @@
   <div id="img2" class="lightbox">
     <div class="lightbox-content">
       <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
-      <img src="images/pic11.png" alt="Sports Team large">
+      <img src="images/pic11.png" alt="Sports team logo embroidery on athletic apparel - custom team uniforms Atlanta" loading="lazy">
       <div class="lightbox-caption">Favorite Team</div>
     </div>
   </div>
@@ -293,7 +286,7 @@
   <div id="img3" class="lightbox">
     <div class="lightbox-content">
       <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
-      <img src="images/pic6.png" alt="Custom brand shirt large">
+      <img src="images/pic6.png" alt="Branded company shirts with custom logo embroidery - corporate apparel Atlanta" loading="lazy">
       <div class="lightbox-caption">Brand Shirts</div>
     </div>
   </div>
@@ -301,7 +294,7 @@
   <div id="img4" class="lightbox">
     <div class="lightbox-content">
       <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
-      <img src="images/kletter.png" alt="Letterman Jacket large">
+      <img src="images/kletter.png" alt="Varsity letterman jacket with custom chenille patches and embroidered name" loading="lazy">
       <div class="lightbox-caption">Letterman</div>
     </div>
   </div>
@@ -309,7 +302,7 @@
   <div id="img5" class="lightbox">
     <div class="lightbox-content">
       <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
-      <img src="images/klawn.jpg" alt="Floral pattern embroidery large">
+      <img src="images/klawn.jpg" alt="Custom floral pattern embroidery design on fabric - decorative stitching Atlanta" loading="lazy">
       <div class="lightbox-caption">Custom</div>
     </div>
   </div>
@@ -317,7 +310,7 @@
   <div id="img6" class="lightbox">
     <div class="lightbox-content">
       <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
-      <img src="images/kgolf.png" alt="Golf large">
+      <img src="images/kgolf.png" alt="Embroidered logo on golf polo shirt - custom corporate golf apparel" loading="lazy">
       <div class="lightbox-caption">On Anything</div>
     </div>
   </div>
@@ -325,7 +318,7 @@
   <div id="img7" class="lightbox">
     <div class="lightbox-content">
       <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
-      <img src="images/heart.png" alt="Heart Design large">
+      <img src="images/heart.png" alt="Heart design custom embroidery on apparel - personalized gifts Atlanta" loading="lazy">
       <div class="lightbox-caption">Show Love</div>
     </div>
   </div>
@@ -333,7 +326,7 @@
   <div id="img8" class="lightbox">
     <div class="lightbox-content">
       <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
-      <img src="images/airborne.png" alt="Airborne Design large">
+      <img src="images/airborne.png" alt="Military airborne insignia embroidery patch - custom military embroidery Atlanta" loading="lazy">
       <div class="lightbox-caption">Have Pride</div>
     </div>
   </div>
@@ -341,7 +334,7 @@
   <div id="img9" class="lightbox">
     <div class="lightbox-content">
       <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
-      <img src="images/fururesport.png" alt="Future Sport Design large">
+      <img src="images/fururesport.png" alt="Future sport custom logo embroidery on athletic wear" loading="lazy">
       <div class="lightbox-caption">Take Action</div>
     </div>
   </div>
@@ -349,7 +342,7 @@
   <div id="img10" class="lightbox">
     <div class="lightbox-content">
       <a href="#gallery" class="lightbox-close" aria-label="Close">&times;</a>
-      <img src="images/vfw.png" alt="VFW Design large">
+      <img src="images/vfw.png" alt="VFW Veterans of Foreign Wars embroidered logo on cap - military embroidery service" loading="lazy">
       <div class="lightbox-caption">Support A Cause</div>
     </div>
   </div>
@@ -466,7 +459,7 @@
               </p>
             </div>
             <div class="testimonial-author">
-              <img src="images/testvfw.png" alt="VFW representative portrait" class="author-avatar">
+              <img src="images/testvfw.png" alt="VFW post commander - KlooseThreads client testimonial" class="author-avatar" loading="lazy">
               <div class="author-info">
                 <h4>Veterans of Foreign Wars (VFW)</h4>
                 <p>Post 6449 Commander</p>
@@ -486,7 +479,7 @@
               </p>
             </div>
             <div class="testimonial-author">
-              <img src="images/testcafe.png" alt="Owner of Willow & Bean Café" class="author-avatar">
+              <img src="images/testcafe.png" alt="Monica Reyes, owner of Willow & Bean Café - satisfied embroidery customer" class="author-avatar" loading="lazy">
               <div class="author-info">
                 <h4>Monica Reyes</h4>
                 <p>Owner, Willow &amp; Bean Café</p>
@@ -506,7 +499,7 @@
               </p>
             </div>
             <div class="testimonial-author">
-              <img src="images/testleague.png" alt="Youth sports coordinator" class="author-avatar">
+              <img src="images/testleague.png" alt="Andre Miller, youth sports coordinator - bulk embroidery client" class="author-avatar" loading="lazy">
               <div class="author-info">
                 <h4>Andre Miller</h4>
                 <p>Coordinator, Southside Youth League</p>
@@ -526,7 +519,7 @@
               </p>
             </div>
             <div class="testimonial-author">
-              <img src="images/testcorporate.png" alt="Facilities manager headshot" class="author-avatar">
+              <img src="images/testcorporate.png" alt="J. Patel, facilities manager at MetroTech Solutions - corporate embroidery client" class="author-avatar" loading="lazy">
               <div class="author-info">
                 <h4>J. Patel</h4>
                 <p>Facilities Manager, MetroTech Solutions</p>
@@ -546,7 +539,7 @@
               </p>
             </div>
             <div class="testimonial-author">
-              <img src="images/testbridal.png" alt="Owner of Magnolia Bridal Studio" class="author-avatar">
+              <img src="images/testbridal.png" alt="Elise Morgan, owner of Magnolia Bridal Studio - monogramming client" class="author-avatar" loading="lazy">
               <div class="author-info">
                 <h4>Elise Morgan</h4>
                 <p>Owner, Magnolia Bridal Studio</p>
@@ -575,6 +568,7 @@
     <section id="contact" style="max-width:400px;margin:2rem auto;padding:2rem;background:#f9f9f9;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
   <h2 style="text-align:center;">Contact</h2>
   <form
+    id="contact-form"
     action="https://formspree.io/f/mdkondbb"
     method="POST"
     style="display:flex;flex-direction:column;gap:1rem;"
