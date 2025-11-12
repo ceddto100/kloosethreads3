@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// Enhanced Testimonials slider
+// Enhanced Testimonials slider with Progress Dots
 (() => {
   const slider = document.querySelector('#testimonials .testimonial-slider');
   if (!slider) return;
@@ -283,6 +283,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const slides = Array.from(slider.querySelectorAll('.testimonial-slide'));
   const prevBtn = slider.querySelector('#testimonial-prev');
   const nextBtn = slider.querySelector('#testimonial-next');
+  const dots = Array.from(document.querySelectorAll('.testimonial-dot'));
 
   let index = 0;
   const total = slides.length;
@@ -295,6 +296,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update ARIA attributes
     slides.forEach((slide, i) => {
       slide.setAttribute('aria-hidden', i !== index);
+    });
+
+    // Update progress dots
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
     });
   }
 
@@ -322,6 +332,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // Button controls
   prevBtn?.addEventListener('click', () => go(-1));
   nextBtn?.addEventListener('click', () => go(1));
+
+  // Dot controls - click to jump to specific testimonial
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      index = i;
+      update();
+      resetAutoPlay();
+    });
+  });
 
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
@@ -380,6 +399,141 @@ document.addEventListener('DOMContentLoaded', function () {
   update();
   startAutoPlay();
 })();
+
+// Scroll Fade-In Animations
+(() => {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  // Apply fade-in to service cards, testimonials, and other elements
+  document.querySelectorAll('.service-card, .about-block, .gallery-img-wrap, .loyalty-card').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+})();
+
+// Toast Notification System
+const Toast = {
+  create(message, type = 'success') {
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+
+    const icon = type === 'success' ? '✓' : '⚠';
+
+    toast.innerHTML = `
+      <div class="toast-icon">${icon}</div>
+      <div class="toast-message">${message}</div>
+      <button class="toast-close" aria-label="Close">×</button>
+    `;
+
+    document.body.appendChild(toast);
+
+    // Show toast
+    setTimeout(() => toast.classList.add('show'), 10);
+
+    // Auto-hide after 5 seconds
+    const autoHideTimer = setTimeout(() => this.hide(toast), 5000);
+
+    // Close button
+    toast.querySelector('.toast-close').addEventListener('click', () => {
+      clearTimeout(autoHideTimer);
+      this.hide(toast);
+    });
+
+    return toast;
+  },
+
+  hide(toast) {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  },
+
+  success(message) {
+    return this.create(message, 'success');
+  },
+
+  error(message) {
+    return this.create(message, 'error');
+  }
+};
+
+// Replace alert() with Toast in form validation (update existing form code)
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contact-form');
+  if (!contactForm) return;
+
+  // Remove the existing submit listener and replace with toast version
+  contactForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const emailInput = this.querySelector('input[type="email"]');
+    const messageInput = this.querySelector('textarea[name="message"]');
+    const submitButton = this.querySelector('button[type="submit"]');
+
+    let isValid = true;
+    const errorMessages = [];
+
+    // Reset any previous error styling
+    if (emailInput) emailInput.style.borderColor = '';
+    if (messageInput) messageInput.style.borderColor = '';
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailInput && !emailRegex.test(emailInput.value)) {
+      isValid = false;
+      emailInput.style.borderColor = 'red';
+      errorMessages.push('Please enter a valid email address');
+    }
+
+    // Message validation
+    if (messageInput && messageInput.value.trim().length < 10) {
+      isValid = false;
+      messageInput.style.borderColor = 'red';
+      errorMessages.push('Message must be at least 10 characters long');
+    }
+
+    if (!isValid) {
+      Toast.error(errorMessages.join('<br>'));
+      return;
+    }
+
+    // If valid, show loading state
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+
+    try {
+      const response = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        Toast.success('Message sent successfully! We\'ll respond within 24 hours.');
+        this.reset();
+      } else {
+        throw new Error('Failed to send');
+      }
+    } catch (error) {
+      Toast.error('Error sending message. Please email us directly at kloosethreads@gmail.com or call 770-771-1443.');
+    } finally {
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
+    }
+  }, true); // Use capture to override previous listener
+});
 
 
 

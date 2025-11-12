@@ -25,6 +25,11 @@ body {
   flex-direction: column;
 }
 
+/* All paragraphs should be black for better readability */
+p {
+  color: #000;
+}
+
 #theme-toggle { margin-left: .75rem; font-size:1rem; background:transparent; border:1px solid currentColor; border-radius:8px; padding:.4rem .6rem; }
 
 header {
@@ -655,6 +660,230 @@ footer {
   margin-top: 1.25rem;
 }
 .services-cta-row .btn-outline i { margin-right: .35rem; }
+
+/* ===== NEW VISUAL ENHANCEMENTS ===== */
+
+/* 1. Enhanced Gallery Hover Effects with Zoom */
+.gallery-img-wrap {
+  overflow: hidden;
+}
+
+.gallery-img {
+  transition: transform 0.4s ease, filter 0.18s;
+}
+
+.gallery-img-wrap:hover .gallery-img,
+.gallery-img-wrap:focus-within .gallery-img {
+  transform: scale(1.15);
+  filter: brightness(0.92) saturate(1.2);
+}
+
+.gallery-caption {
+  background: linear-gradient(to top, rgba(75,0,130,0.95), rgba(162,89,255,0.7));
+  transform: translateY(100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.gallery-img-wrap:hover .gallery-caption,
+.gallery-img-wrap:focus-within .gallery-caption {
+  transform: translateY(0);
+}
+
+/* 2. Animated CTA Button Pulse Effect */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(75, 0, 130, 0.08);
+  }
+  50% {
+    box-shadow: 0 4px 12px rgba(75, 0, 130, 0.08), 0 0 0 15px rgba(75, 0, 130, 0);
+  }
+}
+
+.hero-cta {
+  animation: pulse 2.5s infinite;
+}
+
+.hero-cta:hover {
+  animation: none;
+}
+
+/* 3. Service Card Hover Lift Effect */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(75, 0, 130, 0.15);
+}
+
+.service-card .service-title i {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-title i {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* 4. Testimonial Progress Dots */
+.testimonial-dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.testimonial-dot.active {
+  background: #4b0082;
+  width: 30px;
+  border-radius: 5px;
+}
+
+.testimonial-dot:hover {
+  background: #a259ff;
+}
+
+/* 5. Scroll Fade-In Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 6. Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 1000;
+  transform: translateX(400px);
+  transition: transform 0.3s ease;
+  max-width: 400px;
+}
+
+.toast.show {
+  transform: translateX(0);
+}
+
+.toast.success {
+  border-left: 4px solid #10b981;
+}
+
+.toast.error {
+  border-left: 4px solid #ef4444;
+}
+
+.toast-icon {
+  font-size: 1.5rem;
+}
+
+.toast-message {
+  flex: 1;
+  color: #333;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  line-height: 1;
+}
+
+.toast-close:hover {
+  color: #333;
+}
+
+/* 7. Gradient Text for Hero Title */
+.hero-title {
+  background: linear-gradient(135deg, #4b0082 0%, #a259ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 8. Loading Skeleton for Images */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 9. Instagram-Style Image Overlay */
+.gallery-img-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(75,0,130,0.7),
+    rgba(162,89,255,0.5)
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.gallery-img-wrap:hover::after {
+  opacity: 1;
+}
+
+/* Mobile Responsiveness for New Features */
+@media (max-width: 768px) {
+  .toast {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+
+  .testimonial-dots {
+    gap: 0.35rem;
+  }
+
+  .testimonial-dot.active {
+    width: 25px;
+  }
+}
 
 
 
