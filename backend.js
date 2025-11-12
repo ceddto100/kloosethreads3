@@ -1,16 +1,15 @@
 // Complete updated backend.js file
 document.addEventListener('DOMContentLoaded', function () {
-  // Mobile menu toggle functionality
-  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-  const navbarMenu = document.querySelector('.navbar');
+  // Mobile menu toggle - unified approach
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const navMenu = document.querySelector('nav ul');
 
-  if (mobileMenuToggle && navbarMenu) {
+  if (mobileMenuToggle && navMenu) {
     mobileMenuToggle.addEventListener('click', function () {
-      navbarMenu.classList.toggle('open');
-
-      // Change toggle icon
-      const isOpen = navbarMenu.classList.contains('open');
+      navMenu.classList.toggle('open');
+      const isOpen = navMenu.classList.contains('open');
       mobileMenuToggle.innerHTML = isOpen ? '✕' : '☰';
+      mobileMenuToggle.setAttribute('aria-expanded', isOpen);
     });
   }
 
@@ -93,26 +92,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // 1. Dark Mode Toggle with icon switch
-  const darkModeToggle = document.getElementById('darkModeToggle');
-  if (darkModeToggle) {
-    // Set initial state based on localStorage
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    if (savedDarkMode) {
-      document.body.classList.add('dark-mode');
-    }
-
-    darkModeToggle.addEventListener('click', function () {
-      document.body.classList.toggle('dark-mode');
-
-      // Save preference to localStorage
-      const isDarkMode = document.body.classList.contains('dark-mode');
-      localStorage.setItem('darkMode', isDarkMode);
-    });
-  }
-
-  // 2. Navbar Scroll Effect - Keeping your original code
-  const navbar = document.getElementById('navbar');
+  // Navbar Scroll Effect
+  const navbar = document.querySelector('header');
   if (navbar) {
     window.addEventListener('scroll', function () {
       if (window.scrollY > 50) {
@@ -123,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 3. Smooth Scroll for Navigation Links - Keeping your original code with mobile menu close added
+  // Smooth Scroll for Navigation Links with mobile menu close
   const navLinks = document.querySelectorAll('nav a[href^="#"]');
   navLinks.forEach((link) => {
     link.addEventListener('click', function (e) {
@@ -140,31 +121,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // Close mobile menu if open
-      if (navbarMenu && navbarMenu.classList.contains('open') && mobileMenuToggle) {
-        navbarMenu.classList.remove('open');
+      if (navMenu && navMenu.classList.contains('open') && mobileMenuToggle) {
+        navMenu.classList.remove('open');
         mobileMenuToggle.innerHTML = '☰';
       }
     });
   });
 
-  // 4. Custom Cursor Effect - Keeping your original code
-  const cursor = document.getElementById('custom-cursor');
-  const cursorTrailer = document.getElementById('cursor-trailer');
-
-  if (cursor && cursorTrailer) {
-    document.addEventListener('mousemove', function (e) {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-
-      // Delayed effect for cursor trailer
-      setTimeout(function () {
-        cursorTrailer.style.left = e.clientX + 'px';
-        cursorTrailer.style.top = e.clientY + 'px';
-      }, 100);
-    });
-  }
-
-  // 5. Floating Action Button - Keeping your original code
+  // Floating Action Button
   const fab = document.getElementById('fab');
   if (fab) {
     fab.addEventListener('click', function () {
@@ -184,12 +148,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 6. Form Validation - Enhanced version of your original code
+  // Enhanced Form Validation with Feedback
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      const emailInput = document.querySelector('input[type="email"]');
-      const messageInput = document.querySelector('textarea[name="message"]');
+    contactForm.addEventListener('submit', async function (e) {
+      const emailInput = this.querySelector('input[type="email"]');
+      const messageInput = this.querySelector('textarea[name="message"]');
+      const submitButton = this.querySelector('button[type="submit"]');
 
       let isValid = true;
       const errorMessages = [];
@@ -199,14 +164,15 @@ document.addEventListener('DOMContentLoaded', function () {
       if (messageInput) messageInput.style.borderColor = '';
 
       // Email validation
-      if (emailInput && !emailInput.value.includes('@')) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailInput && !emailRegex.test(emailInput.value)) {
         isValid = false;
         emailInput.style.borderColor = 'red';
         errorMessages.push('Please enter a valid email address');
       }
 
       // Message validation
-      if (messageInput && messageInput.value.length < 10) {
+      if (messageInput && messageInput.value.trim().length < 10) {
         isValid = false;
         messageInput.style.borderColor = 'red';
         errorMessages.push('Message must be at least 10 characters long');
@@ -215,8 +181,44 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!isValid) {
         e.preventDefault();
         alert(errorMessages.join('\n'));
+        return;
+      }
+
+      // If valid, show loading state
+      e.preventDefault();
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch(this.action, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          alert('✓ Message sent successfully! We\'ll respond within 24 hours.');
+          this.reset();
+        } else {
+          throw new Error('Failed to send');
+        }
+      } catch (error) {
+        alert('⚠ Error sending message. Please email us directly at kloosethreads@gmail.com or call 770-771-1443.');
+      } finally {
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
       }
     });
+
+    // Add honeypot field for spam prevention
+    const honeypot = document.createElement('input');
+    honeypot.type = 'text';
+    honeypot.name = '_gotcha';
+    honeypot.style.display = 'none';
+    honeypot.tabIndex = -1;
+    honeypot.autocomplete = 'off';
+    contactForm.insertBefore(honeypot, contactForm.firstChild);
   }
 
   // Scroll Reveal Animation - Improved version of your original code
@@ -263,9 +265,16 @@ document.addEventListener('DOMContentLoaded', function () {
   // Add event listeners
   window.addEventListener('resize', handleResize);
   window.addEventListener('scroll', handleScrollReveal);
+
+  // Dynamic copyright year
+  const footerCopyright = document.querySelector('footer > div:first-child');
+  if (footerCopyright) {
+    const currentYear = new Date().getFullYear();
+    footerCopyright.textContent = `LooseThreads LLC © ${currentYear}. All rights reserved.`;
+  }
 });
 
-// Testimonials slider (no dependencies)
+// Enhanced Testimonials slider
 (() => {
   const slider = document.querySelector('#testimonials .testimonial-slider');
   if (!slider) return;
@@ -277,37 +286,99 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let index = 0;
   const total = slides.length;
+  let autoPlayInterval;
 
   function update() {
     const offset = -index * slider.clientWidth;
     track.style.transform = `translateX(${offset}px)`;
+
+    // Update ARIA attributes
+    slides.forEach((slide, i) => {
+      slide.setAttribute('aria-hidden', i !== index);
+    });
   }
 
   function go(delta) {
     index = (index + delta + total) % total;
     update();
+    resetAutoPlay();
   }
 
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(() => go(1), 5000); // Change slide every 5 seconds
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+    }
+  }
+
+  function resetAutoPlay() {
+    stopAutoPlay();
+    startAutoPlay();
+  }
+
+  // Button controls
   prevBtn?.addEventListener('click', () => go(-1));
   nextBtn?.addEventListener('click', () => go(1));
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!slider.matches(':hover')) return; // Only when slider is focused
+    if (e.key === 'ArrowLeft') go(-1);
+    if (e.key === 'ArrowRight') go(1);
+  });
 
   // Resize handling
   window.addEventListener('resize', update);
 
-  // Optional: swipe on touch devices
+  // Touch/swipe support
   let startX = null;
-  track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  let isDragging = false;
+
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = false;
+    stopAutoPlay();
+  }, { passive: true });
+
   track.addEventListener('touchmove', (e) => {
     if (startX === null) return;
-    const dx = e.touches[0].clientX - startX;
-    if (Math.abs(dx) > 40) {
-      go(dx > 0 ? -1 : 1);
-      startX = null;
+    const currentX = e.touches[0].clientX;
+    const diff = currentX - startX;
+
+    if (Math.abs(diff) > 10) {
+      isDragging = true;
     }
   }, { passive: true });
 
-  // Init
+  track.addEventListener('touchend', (e) => {
+    if (!isDragging || startX === null) {
+      startAutoPlay();
+      return;
+    }
+
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+
+    if (Math.abs(diff) > 50) { // Minimum swipe distance
+      go(diff > 0 ? -1 : 1);
+    } else {
+      startAutoPlay();
+    }
+
+    startX = null;
+    isDragging = false;
+  });
+
+  // Pause on hover
+  slider.addEventListener('mouseenter', stopAutoPlay);
+  slider.addEventListener('mouseleave', startAutoPlay);
+
+  // Initialize
   update();
+  startAutoPlay();
 })();
 
 

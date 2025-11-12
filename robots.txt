@@ -1,0 +1,14 @@
+# KlooseThreads Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kloosethreads.com/sitemap.xml
+
+# Crawl-delay (optional, adjust if needed)
+Crawl-delay: 1
+
+# Block common bot traps
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /private/

@@ -140,6 +140,15 @@ nav a:hover, nav a:focus {
   margin-left: auto;
   margin-right: auto;
 }
+/* Hero description glow effect */
+.hero-glow {
+  color: #4b0082;
+  font-weight: bold;
+  text-shadow:
+    0 0 8px #a259ff,
+    0 0 16px #a259ff,
+    0 0 24px #a259ff;
+}
 .hero-cta {
   background: var(--primary);
   color: #fff;
@@ -600,6 +609,25 @@ footer {
   background: #222733;
   color: #eaeaea;
   border-color: rgba(255,255,255,.12);
+}
+
+/* Secondary button style */
+.btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: #4b0082;
+  border: 2px solid #4b0082;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+  background: #4b0082;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(75, 0, 130, 0.3);
 }
 
 /* Outline */
