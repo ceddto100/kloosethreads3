@@ -414,18 +414,18 @@ nav a:focus {
   z-index: 1;
 }
 
-/* Logo - larger to fill the circle */
+/* Logo - no white background, just the logo */
 .hero-logo {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
   margin-bottom: 1.5rem;
-  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.6)) brightness(1.1);
   animation: float 6s ease-in-out infinite;
-  background: #ffffff;
-  border-radius: 50%;
-  padding: 5px;
-  border: 3px solid rgba(168, 85, 247, 0.5);
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: none;
 }
 
 @keyframes float {
@@ -546,35 +546,14 @@ nav a:focus {
   position: relative;
   overflow: hidden;
   transition: all var(--transition-smooth);
-  box-shadow:
-    0 8px 25px rgba(108, 43, 217, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-  opacity: 0;
-  transition: opacity var(--transition-smooth);
+  box-shadow: 0 8px 25px rgba(108, 43, 217, 0.25);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  color: #1e1b4b !important;
-  box-shadow:
-    0 15px 35px rgba(108, 43, 217, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.btn-primary:hover::before {
-  opacity: 1;
-}
-
-.btn-primary span {
-  position: relative;
-  z-index: 1;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: white !important;
+  box-shadow: 0 15px 35px rgba(108, 43, 217, 0.4);
 }
 
 .btn-secondary {
@@ -789,11 +768,13 @@ nav a:focus {
 }
 
 .service-actions .btn-primary:hover {
-  color: #1e1b4b !important;
+  color: white !important;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
 }
 
 .service-actions .btn-secondary:hover {
-  color: #ffffff !important;
+  color: white !important;
+  background: var(--primary);
 }
 
 /* Quick Links Row */
@@ -1635,9 +1616,9 @@ footer > div:first-child {
   }
 
   .hero-logo {
-    width: 90px;
-    height: 90px;
-    padding: 4px;
+    width: 100px;
+    height: 100px;
+    padding: 0;
   }
 
   .hero-title {
